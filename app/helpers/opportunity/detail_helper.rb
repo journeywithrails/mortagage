@@ -1,0 +1,2 @@
+module Opportunity::DetailHelper
+end

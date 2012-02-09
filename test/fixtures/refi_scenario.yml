@@ -1,0 +1,3 @@
+base_case:
+  is_base_case: 1
+  household: default

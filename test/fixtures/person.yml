@@ -1,0 +1,22 @@
+default:
+  first_name: "Chue"
+  last_name: "Carillo"
+  household: default
+  address1 : "Boulder, CO"
+  city: "North Pole"
+
+eastwood:
+  first_name: Clint
+  last_name: Eastwood
+  address1: 123 Main St
+  city: Deadwood
+  state: SD
+  household: eastwood_household
+
+guiliani:
+  first_name: Rudolph
+  last_name: Guiliani
+  address1: 101 Main St.
+  city: New York
+  state: NY
+  household: guiliani_household

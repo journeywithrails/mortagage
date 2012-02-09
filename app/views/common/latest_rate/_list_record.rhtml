@@ -1,0 +1,16 @@
+<%
+record = list_record if list_record # compat with render :partial :collection
+tr_class = cycle("", "even-record")
+url_options = params_for(:action => :list, :id => record.id)
+-%>
+
+<tr class="record <%= tr_class %>">
+	<td>&nbsp;</td>
+  	<% active_scaffold_config.list.columns.each do |column| %>
+    	<% column_value = get_column_value(record, column) -%>
+    	<td class="data2" >
+    		<%= render_list_column(column_value, column, record) %>
+		</td>
+	<% end -%>
+</tr>
+

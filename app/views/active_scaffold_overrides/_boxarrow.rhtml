@@ -1,0 +1,34 @@
+<div id="boxarrow">
+  <div class="<%= defined?(div_class) && div_class || "Heading01a" %>"><%= defined?(title) && title || (active_scaffold_config.list.user.label rescue "") %></div>
+  <div style="float:right;text-align:right; padding-top:5px;position: relative;">    
+<%
+  require 'pathname'
+  help_file_name ||= File.join(controller.subtab_nav, '_' + controller.controller_name + '.erb')
+  help_file_name = help_file_name.gsub(/\.html\.erb$/, '.erb')
+
+  #remove the '_' from the partial name
+  path = Pathname.new(help_file_name)
+  partial_name = path.dirname.join(path.basename.to_s.starts_with?('_') ? path.basename.to_s.from(1) : path.basename).to_s
+
+  #Ensure the physical file name starts with an _
+  path = Pathname.new(help_file_name)
+  basename = path.basename.to_s.starts_with?('_') ? path.basename.to_s : '_' << path.basename.to_s
+  physical_name = File.join(RAILS_ROOT, 'app', 'views', 'help', path.dirname, basename)
+%>
+  <span style="font-size:12px; color:<%= File.exist?(physical_name) ? 'green' : 'red' %>">
+    <%= h(physical_name.gsub(RAILS_ROOT, '')) %>
+  </span>
+    <%
+    tooltip :name=>image_tag("/images/i.gif", :name=> controller.controller_name, :alt=>"more", :border=>"0", :id=>"arrow3"),
+            :tooltip_class=>'boxarrow_tooltip' do %>
+      <%=
+      if File.exist?(physical_name) then
+        render :partial => '/help/' + partial_name
+      else
+        logger.debug "Help file #{physical_name} is missing\n"
+        render :partial => '/help/default'
+      end
+    %>
+    <% end %>
+  </div>
+</div>

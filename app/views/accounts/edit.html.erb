@@ -1,0 +1,30 @@
+<h1>your account settings</h1>
+
+<% form_for :account, @account, :url => { :action => 'update' }, :html => { :method => :put, :multipart => true } do |f| %>
+  <%= render :partial => 'account_errors' %>
+  
+  <fieldset>
+    <% fields_for :account do |f| %>
+      <%= f.text_field :name, :label=>'Business Name' %>*<br>
+      <%= f.text_field :website_url, :label=>'Business Web Site' %><br>
+      <%= label_tag "Business Logo File" %><%= input_file_column("logo_file", @account) %><br>
+    <% end %>
+  </fieldset>
+
+  <br>
+  <p>
+    Enter information for the administrator user account. If you are the only broker, you are the administrator.
+  </p>
+  <%= render :partial => 'user_fieldset' %>
+
+  <% if @account.needs_payment_info? %>
+    <p>
+      Enter your payment information:
+    </p>
+
+    <%= render :partial => "shared/credit_card_form" %>
+  <% end %>
+  
+  <br>
+  <input type="submit" value="Update account" />
+<% end %>

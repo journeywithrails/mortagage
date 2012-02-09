@@ -1,0 +1,118 @@
+
+<table width="270" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+    <td class="CorBg01"></td>
+    <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td width="10" class="CorBg02"></td>
+    <td width="250" valign="top"><div class="Heading01Divs06">
+      		 <%= render_box_arrow(__FILE__, "Loan History") %>
+      </div>
+      <br /><br /><br /><br />
+      <table width="250" border="0" cellspacing="0" cellpadding="0" class="Text01">
+        <% if !@household.base_case_refi_scenario.blank?%>
+
+          <tr>
+            <td valign="bottom">
+            Property</td>
+            <td width="8"></td>
+            <td valign="bottom" align="center">
+              Current<br />
+            Balance</td>
+            <td width="8"></td>
+            <td valign="bottom" align="center">
+              Loan<br />
+            Date</td>
+            <td width="8"></td>
+            <td valign="bottom" align="center">
+              Current<br />
+            Rate</td>
+            <td width="8"></td>
+            <td valign="bottom" align="center">
+              Loan<br />
+            Type</td>
+          </tr>
+          <% @household.base_case_refi_scenario.refi_properties.each do |refi_property| %>
+            <% refi_property.refi_loans.each do |refi_loan| %>
+              <tr>
+                <td valign="top">
+                <span class="TextColor01" id="loan_history_label_<%= refi_property.property.id %>"><%=refi_property.property.to_label%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%=  number_to_currency(refi_loan.loan_amount, :precision=>0) %>&nbsp;</span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%=  refi_loan.loan.closing_date.strftime('%m/%d/%Y') if !refi_loan.loan.closing_date.blank?  %></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_percentage(refi_loan.note_rate, :precision => 2) %></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%=  refi_loan.loan.loan_type.to_label %></span></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+        <tr>
+          <td height="20"></td>
+        </tr>
+      </table>
+
+      <table width="250" border="0" cellspacing="0" cellpadding="0" class="Text01">
+        <% if !@inactive_loans.blank? %>
+          <tr>
+            <td valign="bottom">
+            Inactive Loans</td>
+            <td width="8"></td>
+            <td valign="bottom" align="center">
+            Balance</td>
+            <td width="8"></td>
+            <td valign="bottom" align="center">
+            Date</td>
+            <td width="8"></td>
+            <td valign="bottom" align="center">
+            Status</td>
+          </tr>
+          <% @inactive_loans.each do |loan| %>
+            <tr>
+              <td valign="top">
+              <span class="TextColor01"><%=loan.property.to_label%></span></td>
+              <td></td>
+              <td valign="top" align="center">
+              <span><%=number_to_currency(loan.loan_amount,:precision=>0)%></span></td>
+              <td></td>
+              <td valign="top" align="center">
+              <span><%=loan.closing_date.strftime('%m/%d/%Y') if !loan.closing_date.blank? %></span></td>
+              <td></td>
+              <td valign="top" align="center">
+              <span><%=loan.loan_status.to_label%></span></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr><td colspan="7"><i>No Inactive Loans</i></td></tr>
+        <% end %>
+      </table>
+
+    </td>
+    <td width="10" class="CorBg03"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+    <td class="CorBg04"></td>
+    <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+

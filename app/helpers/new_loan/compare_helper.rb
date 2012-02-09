@@ -1,0 +1,2 @@
+module NewLoan::CompareHelper
+end

@@ -1,0 +1,78 @@
+<table width="914" !width="894" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td valign="top" colspan="3">
+        <div class="Heading03">Welcome <%= current_user.name  %>, Here's Your Dashboard:</div>
+      </td>
+  </tr>
+  <tr>
+      <td valign="top" width="584">
+          <%= render :active_scaffold => '/opportunity/all', :label => 'Your Top Opportunities' %>
+          <table width="564" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+              <td height="10"></td>
+          </tr>
+          </table>
+          <table width="584" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+              <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+              <td class="CorBg01"></td>
+              <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+          </tr>
+          <tr>
+              <td width="10" class="CorBg02"></td>
+              <td width="564" valign="top">
+                 <%= render :partial => 'client_news' %></td>
+              <td width="10" class="CorBg03"></td>
+          </tr>
+          <tr>
+              <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+              <td class="CorBg04"></td>
+              <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+          </tr>
+          </table>
+
+          
+		 <table width="564" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+              <td height="10"></td>
+          </tr>
+          </table>
+           <%= render :partial => 'recent_activities' %>   
+          </td>
+      <td width="10">&nbsp;</td>
+      <td width="320" valign="top">
+          <table width="320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+              <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+              <td class="CorBg01"></td>
+              <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+          </tr>
+          <tr>
+              <td width="10" class="CorBg02"></td>
+              <td valign="top" width="300">
+              <%= render :partial => 'portfolio_watch' %>
+			  </td>
+              <td width="10" class="CorBg03"></td>
+          </tr>
+          <tr>
+              <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+              <td class="CorBg04"></td>
+              <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+          </tr>
+          </table>
+
+          <table width="320" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+              <td height="10"></td>
+          </tr>
+          </table>
+		  
+		  <%= render :partial => 'upcoming_events' ,:locals => {:household_events => @household_events}%>
+		
+          </td>
+  </tr>
+  </table>
+
+
+
+

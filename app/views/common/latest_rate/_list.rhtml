@@ -1,0 +1,17 @@
+<tbody class="messages">
+    <tr>
+        <td colspan="<%= active_scaffold_config.list.columns.length + 1 -%>" class="messages-container">
+            <div id="<%= active_scaffold_messages_id -%>">
+                <%= render :partial => 'messages' %>
+            </div>
+            <p id="<%= empty_message_id %>" class="empty-message"<%= ' style="display:none;" ' unless @page.items.empty? %>>
+                <%= as_('No Entries') %>
+            </p>
+        </td>
+    </tr>
+</tbody>
+<tbody class="records" id="<%= active_scaffold_tbody_id %>">
+    <% if !@records.empty? -%>
+    <%= render :partial => 'list_record', :collection => @page.items, :locals => { :hidden => false } %>
+    <% end -%>
+</tbody>

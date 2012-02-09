@@ -1,0 +1,2 @@
+module NewLoan::LoanHelper
+end

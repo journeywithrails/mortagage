@@ -1,0 +1,258 @@
+<%= javascript_include_tag 'swfobject' %>
+
+<table width="634" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+    <td class="CorBg01"></td>
+    <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td width="10" class="CorBg02"></td>
+    <td width="614" valign="top">
+      <div class="Heading01Divs07"><%= render_box_arrow(__FILE__, 'Property Details') %></div><br /><br /><br /><br />
+
+      <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text03">
+        <tr>
+          <td valign="top">
+          <div class="TextLarge02"><%= @property.property_address %></div></td>
+        </tr>
+        <tr>
+          <td height="20"></td>
+        </tr>
+        <tr>
+          <td valign="top">
+          <span class="TextLargeHeading01">Home Details</span></td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+        <td valign="top">
+          <table width="614" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td valign="top" width="250">
+                <table width="250" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top" width="130">
+                    Date Purchased</td>
+                    <td width="10"></td>
+                    <td valign="top" align="right">TODO: Feb-95</td>
+                  </tr>
+                  <tr>
+                    <td valign="top">
+                    Purchase Price</td>
+                    <td></td>
+                    <td valign="top" align="right"><%= number_to_currency(@property.purchase_price) %></td>
+                  </tr>
+                  <tr>
+                    <td valign="top">
+                    Assessed Value</td>
+                    <td></td>
+                    <td valign="top" align="right"><%=  @zillow_cache.tax_assessment if !@zillow_cache.blank?%></td>
+                  </tr>
+                  <tr>
+                    <td valign="top">
+                    Living Area</td>
+                    <td></td>
+                    <td valign="top" align="right">TODO:2,350 Sq feet</td>
+                  </tr>
+                  <tr>
+                    <td valign="top">
+                    Lot Size</td>
+                    <td></td>
+                    <td valign="top" align="right"><%=  @zillow_cache.lot_size_sq_ft if !@zillow_cache.blank?%> Sq feet</td>
+                  </tr>
+                  <tr>
+                    <td valign="top">
+                    Type</td>
+                    <td></td>
+                    <td valign="top" align="right"><%=  @zillow_cache.use_code if !@zillow_cache.blank?%></td>
+                  </tr>
+                  <tr>
+                    <td valign="top">
+                    Year Built</td>
+                    <td></td>
+                    <td valign="top" align="right"><%=  @zillow_cache.year_built if !@zillow_cache.blank?%></td>
+                  </tr>
+                  <tr>
+                    <td valign="top">
+                    Zillow Value</td>
+                    <td></td>
+                    <td valign="top" align="right"><%=  number_to_currency(@zillow_cache.zestimate, :precision=>0) if !@zillow_cache.blank?%></td>
+                  </tr>
+              </table></td>
+              <td valign="top" width="20"></td>
+              <td valign="top" width="350">
+                <%= render :partial => 'estimated_equity_chart' %>
+              </td>
+            </tr>
+        </table></td>
+        <tr>
+        <tr>
+          <td class="Dots">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="20"></td>
+        </tr>
+      </table>
+
+      <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text03">
+        <tr>
+          <td valign="top">
+          <span class="TextLargeHeading01">Current Loan Details</span></td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+        <td valign="top">
+          <table width="614" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td valign="top" width="250">
+                <table width="250" border="0" cellspacing="0" cellpadding="0">
+                  <% @base_case_refi_loans.each_with_index do |current_loan, i| %>
+                    <tr>
+                      <td valign="top" width="130">
+                      Loan <%= i+1 %></td>
+                      <td width="10"></td>
+                      <td valign="top" align="right">
+                      <span class="TextLargeColor01"><%= current_loan.loan_type.name %></span></td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                      Loan Amount</td>
+                      <td></td>
+                      <td valign="top" align="right"><%= number_to_currency(current_loan.loan.loan_amount, :precision=>0) %></td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                      Balance</td>
+                      <td></td>
+                      <td valign="top" align="right"><%= number_to_currency(current_loan.loan_amount, :precision=>0) %></td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                      Current Payment</td>
+                      <td></td>
+                      <td valign="top" align="right"><%= number_to_currency(current_loan.monthly_payment, :precision=>0) %></td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                      Current Interest Rate</td>
+                      <td></td>
+                      <td valign="top" align="right"><%= number_to_percentage(current_loan.note_rate, :precision => 2) %></td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                      Remaining Term</td>
+                      <td></td>
+                      <td valign="top" align="right"><%= current_loan.loan_term_label %></td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                      Estimated Payoff Date</td>
+                      <td></td>
+                      <td valign="top" align="right"><%= current_loan.estimated_payoff_date.strftime('%b-%d') if !current_loan.estimated_payoff_date.blank? %></td>
+                    </tr>
+                    <tr>
+                      <td height="20"></td>
+                    </tr>
+                  <% end %>
+              </table></td>
+              <td valign="top" width="20"></td>
+              <td valign="top" width="350">
+
+                <%= render :partial =>  "loan_refinance_opportunity_chart" %>
+
+              </td>
+            </tr>
+        </table></td>
+        <tr>
+        <tr>
+          <td class="Dots">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="20"></td>
+        </tr>
+      </table>
+
+      <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text03">
+        <tr>
+          <td valign="top" colspan="15">
+          <span class="TextLargeHeading01">Loan Comparison / Opportunities</span></td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+
+        <% if @property.refi_scenarios.length == 0 then %>
+          <br/>
+          <tr>
+            <td valign="middle" colspan="15" align="left">
+              At present, there are no new loan opportunities for this property. <br/>
+              Possible reasons for this are negative equity or that the existing loans have favorable interest rates.
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <td valign="bottom">Program</td>
+            <td width="10"></td>
+            <td valign="bottom" align="right">Monthly<br />Savings</td>
+            <td width="10"></td>
+            <td valign="bottom" align="center">New<br />Loan</td>
+            <td width="10"></td>
+            <td valign="bottom" align="center">Est. Closing<br />Costs</td>
+            <td width="10"></td>
+            <td valign="bottom" align="center">New<br />Payment</td>
+            <td width="10"></td>
+            <td valign="bottom" align="center">New<br />Rate</td>
+            <td width="10"></td>
+            <td valign="bottom" align="center">New<br />Term</td>
+            <td width="10"></td>
+            <td valign="bottom" align="center">Include In<br />Report</td>
+          </tr>
+          <tr>
+            <td height="5"></td>
+          </tr>
+          <%
+          @property.refi_scenarios.each do |refi_scenario|
+            refi_property = refi_scenario.refi_property_for_property_id(@property.id)
+            refi_loan = refi_property.refi_loans.first
+          %>
+            <tr>
+              <td valign="top"><a href="#" target="_self"><%= refi_loan.new_loan_product.name %></a></td>
+              <td></td>
+              <td valign="top" align="right"><%= colored_currency_label(-refi_scenario.net_monthly_payment_change) %></td>
+              <td></td>
+              <td valign="top" align="center"><%= number_to_currency(refi_loan.loan_amount, :precision=>0) %></td>
+              <td></td>
+              <td valign="top" align="center">TODO</td>
+              <td></td>
+              <td valign="top" align="center"><%= number_to_currency(refi_loan.monthly_payment, :precision=>0) %></td>
+              <td></td>
+              <td valign="top" align="center"><%= pct_label(refi_loan.note_rate) %></td>
+              <td></td>
+              <td valign="top" align="center"><%= refi_loan.new_loan_product.term %> mo</td>
+              <td></td>
+              <td valign="top" align="center"><input type="checkbox" /></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td valign="middle" colspan="15" align="right">TODO
+            <a href="#" target="_self"><img src="/images/btn_sendreports.gif" alt="" border="0" /></a></td>
+          </tr>
+        <% end %>
+    </table></td>
+    <td width="10" class="CorBg03"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+    <td class="CorBg04"></td>
+    <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+  </tr>
+</table>
+
+

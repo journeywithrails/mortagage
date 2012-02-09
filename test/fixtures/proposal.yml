@@ -1,0 +1,21 @@
+default:
+  user: authorized_user
+  name: Chue
+  household: default
+  property: mofo
+  updated_at: "2009-04-01"
+
+belongs_to_other_broker:
+  user: other_broker
+  name: Clint
+  household: eastwood_household
+  property: eastwood_house
+  updated_at: "2010-12-15"
+
+guiliani_apartment:
+  user: authorized_user
+  name: Rudolph
+  household: guiliani_household
+  property: guiliani_apartment_to_buy
+  updated_at: "2009-04-03"
+  

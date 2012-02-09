@@ -1,0 +1,14 @@
+<h1><%= @page_title = 'Cancel Account' %></h1>
+
+<p>You are about to cancel your account. Insert sob story about not leaving here.</p> 
+
+<% form_tag :action => 'cancel' do %>
+  <fieldset>
+    <legend>Cancel Confirmation</legend>
+    <br>
+    <input type="checkbox" name="confirm" class="checkbox" value="1" />
+    I really do want to cancel my account.
+  </fieldset>
+
+  <%= submit_or_cancel '/account', 'Cancel my Account' %>
+<% end %>

@@ -1,0 +1,42 @@
+
+<table width="914" width="894" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td valign="top" with="584">
+						<%= render :partial => 'loan_summary' %>
+						
+						<table width="564" border="0" cellspacing="0" cellpadding="2">
+						<tr>
+							<td height="10"></td>
+						</tr>
+						</table>
+						
+						<%= render :partial => 'estimated_monthly_payment' %>
+						
+						<table width="564" border="0" cellspacing="0" cellpadding="2">
+						<tr>
+							<td height="10"></td>
+						</tr>
+						</table>
+						<%= render :partial => 'estimated_home_appreciation'%>
+						</td>
+					<td width="10">&nbsp;</td>
+					<td width="320" valign="top">
+						<%= render :partial => 'estimated_closing_costs' %>
+						
+						<table width="320" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td height="10"></td>
+						</tr>
+						</table>
+						
+						<%= render :partial => 'estimated_tax_benefit' %>
+						
+						<table width="320" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td height="10"></td>
+						</tr>
+						</table>
+						<%= render :partial => 'payment_forecast' %>
+						</td>
+				</tr>
+				</table>

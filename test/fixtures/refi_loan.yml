@@ -1,0 +1,4 @@
+default:
+  loan_amount_in_cents: 10000000
+  refi_property: base_case_property
+  loan: hundred_thousand_loan_thousand_closing

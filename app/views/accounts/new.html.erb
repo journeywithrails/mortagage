@@ -1,0 +1,37 @@
+<h1>Create an account</h1>
+
+<% form_tag( {:action=> 'create' }, :multipart=> true ) do %>
+  <%= hidden_field_tag 'plan', params[:plan] %>
+  <p>
+    Enter your business information:
+  </p>
+
+  <%= render :partial => 'account_errors' %>
+  
+  <fieldset>
+    <% fields_for :account do |f| %>
+      <%= f.text_field :name, :label=>'Business Name' %>*<br>
+      <%= f.text_field :domain %>.<%= AppConfig['base_domain'] %> *<br>
+      <%= f.text_field :website_url, :label=>'Business Web Site' %>(for example, www.yoursite.com)<br>
+      <%= label_tag "Business Logo File" %><%= input_file_column("logo_file", @account) %><br>
+    <% end %>
+  </fieldset>
+
+  <br>
+  <p>
+    Enter information for the administrator user account. If you are the only broker, you are the administrator.
+  </p>
+  
+  <%= render :partial => 'user_fieldset' %>
+
+  <% if @account.needs_payment_info? %>
+    <p>
+      Enter your payment information:
+    </p>
+
+    <%= render :partial => "shared/credit_card_form" %>
+  <% end %>
+  
+  <br>
+  <input type="submit" value="Create my account" />
+<% end %>

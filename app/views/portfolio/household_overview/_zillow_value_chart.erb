@@ -1,0 +1,44 @@
+
+  <%=
+  ambling_chart(:column,  :chart_data => @zillowvalue_data,
+    :id => 'zillow_value', :width => 280, :height => 250,
+	:chart_settings => Ambling::Column::Settings.new({
+		:type => 'bar',
+		:thousands_separator => ",",
+        :column => {
+          :type => "stacked", :width => 77, :spacing => 5,
+          :balloon_text => cdata_section("{series} : ${value}"),
+          :data_labels => cdata_section("${value}"),
+          :data_labels_position => "outside",
+          :data_labels_text_color => "#ffffff"
+        },
+        :grid => {
+          :category => {:alpha => 5}, :value => {:alpha => 10}
+        },
+        :values => {
+          :category => {:enabled => true,:text_size=>8,:color => "#4A452A"},:value => {:unit =>'$',:unit_position => 'left',:frequency => 2.5,:skip_first => false,:color => "#948B54"}
+        },
+		:axes => {
+		:category =>{:width => 1},:value => {:alpha => 0 , :width => 0}
+		},
+        :plot_area => {
+          :margins => {:left => 90, :top => 40, :right => 20, :bottom => 50}
+        },
+        :legend => {
+          :enabled => true, :width => 100, :text_color => "#948B54",
+          :max_columns => 1, :spacing => 1, :text_size => 10,
+          :key => {:size => 10}
+        },
+        :labels => {
+          :label => [
+            {:x => 20, :y => 5, :text => cdata_section("<b>Zillow Value</b>"),
+              :text_size => 17, :text_color => '#948B54', :align => "center"},
+            {:x => 30, :y => 170, :text => "", :align => "center", :width => 180,
+              :text_size => 12}
+          ]
+        }
+      }).to_xml) do
+    render :partial => '/common/missing_flash'
+  end
+%>
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title><%= @page_title ? "#{@page_title} | #{AppConfig['app_name']}" : AppConfig['app_name'] %></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag "fastinit" %>
+    <%= javascript_include_tag "tablesort" %>
+    <%= stylesheet_link_tag 'style_sort' %>
+    <%= javascript_include_tag "images" %><!-- get rid of this eventually? -->
+    <%= active_scaffold_includes %>
+    <%= stylesheet_link_tag 'reset-fonts.css', 'styles_new.css'  %> <!--  -->
+    <%= stylesheet_link_tag 'active_scaffold_overrides' %>
+    <%= calendar_date_select_includes %>
+  </head>
+  <body onload="MM_preloadImages('/images/topbtn_login02.gif','/images/topbtn_signup02.gif','/images/topbtn_search02.gif','/images/toplink_services02.gif','/images/toplink_pricing02.gif','/images/toplink_takeatour02.gif','/images/toplink_support02.gif','/images/toplink_about02.gif','/images/toplink_home02.gif')">
+
+    <div id="Container">
+      <div id="HeaderContainer">
+
+        <div id="HeaderLinkLogin" class="HeaderLinkText">
+          <span>
+            <% if session[:user_id] then %>
+              <%= link_to("log out", session_url, :method => :delete,:class => "HeaderLink") %> |
+            <% else %>
+              <%= link_to('log in', new_session_url,:class => "HeaderLink") %> |
+            <% end %>
+            <%= link_to("settings", {:controller=>'/account', :action=>'edit'},:class => "HeaderLink") %> |
+          <a href="#" class = "HeaderLink">help</a>
+          </span><br />
+
+          <div id="HeaderLoginPad">
+            <div class="HeaderInputDiv">
+              <input type="text" class="HeaderInput" value="search" name="search"/>
+            </div>
+            <div class="HeaderInputBtnDiv">
+            <input name="submit" input type="image" src="/images/topbtn_search01.gif"  value="submit" onmouseover="MM_swapImage('Image3','','/images/topbtn_search02.gif',1)" /></div>
+          </div>
+        </div>
+
+        <a href="index.html" target="_self"><img src="/images/top_logo.gif" alt="Mortgage Science"/></a>
+
+        <!-- navigation -->
+
+        <div id="TopLinkContainer">
+          <% if logged_in? %>
+            <%= tabnav :main %>
+          <% else %>
+            <!-- public page is currently hacked as a subtab nav -->
+            <%= tabnav controller.subtab_nav %>
+          <% end %>
+        </div>
+
+        <!-- / navigation -->
+
+      </div>
+      <!-- end header -->
+
+      <div id="BodyContainer">
+        <div id="Center">
+          <div id="PgHeadBg">
+            <div id="PgHeadingWithLink">
+              <% if logged_in? %>
+                <%= tabnav controller.subtab_nav %>
+              <% end %>
+
+            </div>
+          </div>
+
+          <!-- mainContent -->
+          <div id="CenterContainer" style="border:0px solid #000000;">
+            <%= flash_notices %>
+            <%= yield %>
+          </div><!-- end mainContent -->
+
+          <div style="clear:both;"></div>
+
+          <div id="Footer">
+            <div id="FooterDivs">
+              <div id="FooterLeft">Copyright © 2009 <strong>Somispo, Inc.</strong> All Rights Reserved. &nbsp; | &nbsp;
+                <a href="#" target="_self">Privacy Statement</a> &nbsp; | &nbsp;
+              <a href="#" target="_self">Terms of Use</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div><img src="/images/footerborder.gif" alt="" border="0" /></div>
+    </div>
+
+    <!-- end #container -->
+
+  </body>
+</html>

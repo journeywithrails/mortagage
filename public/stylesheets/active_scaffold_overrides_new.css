@@ -1,0 +1,232 @@
+.active-scaffold {
+/*	background: url(/images/e.gif) repeat-y right;*/
+	border-left-width: 0px;
+	padding-right: 0px;
+}
+
+.active-scaffold a, .active-scaffold a:visited {
+color:#462F1F;
+}
+
+.active-scaffold a:hover {
+	text-decoration: none;
+	background-color: transparent;
+}
+
+.active-scaffold-header {
+/*	background: url(/images/ne.gif) no-repeat top right; (in main.css: boxtop */
+        background: none;
+	text-transform:lowercase;
+}
+
+.active-scaffold .active-scaffold-footer {
+	padding: 0px 20px;
+	}
+.active-scaffold-header div.actions {
+	position:absolute;
+        background: none;
+	right:40px;
+	text-align:right;
+	top:0px;
+}
+
+.active-scaffold-header div.actions a {
+	color: #ffffff;
+}
+
+.active-scaffold-header div.actions a:hover {
+	color: #F5BB18;
+}
+
+
+.active-scaffold-header h2 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	height: 15px; 
+/*	background: url(/images/nw.gif) no-repeat top left; */
+}
+
+.active-scaffold th {
+/*background-color: #faf5d3;*/
+background-color: #ffffff;
+font-weight:bold;
+color:#948b54;
+
+}
+
+.active-scaffold th a,
+.active-scaffold th p {
+/*background-color: #faf5d3;*/
+background-color: #ffffff;
+/*color: #807263;*/
+color:#948b54;
+font-size:13px;
+text-transform:lowercase;
+font-weight:lighter;
+}
+
+.active-scaffold th a {
+/*color: #807263;*/
+color:#625d45;
+background-color: #ffffff;
+padding: 0px 0px 1px;
+font-size:13px;
+text-transform:lowercase;
+font-weight:bold;
+
+}
+
+.active-scaffold th a:hover {
+/*background-color: #faf5d3;*/
+/*color:  #462F1F;*/
+/*font-weight:bold;
+*/
+color:#625d45;
+background-color: #ffffff;
+font-weight:bold;
+}
+
+.active-scaffold th.sorted {
+/*background-color: #faf5d3;*/
+background-color: #ffffff;
+color:  #462F1F;
+font-weight:bold;
+}
+
+.active-scaffold th.asc a,
+.active-scaffold th.asc a:hover {
+/*background: #faf5d3 url(../../../images/active_scaffold/default/arrow_up.gif) right 50% no-repeat;*/
+background-color: #ffffff;
+/*color:  #462F1F;*/
+}
+
+.active-scaffold th.desc a,
+.active-scaffold th.desc a:hover {
+/*background: #faf5d3 url(../../../images/active_scaffold/default/arrow_down.gif) right 50% no-repeat;
+*/
+background-color: #ffffff;
+/*color:  #462F1F;*/
+}
+
+.active-scaffold th.loading a,
+.active-scaffold th.loading a:hover {
+/*background: #faf5d3 url(../../../images/active_scaffold/default/indicator-small.gif) right 50% no-repeat;*/
+background-color: #ffffff;
+/*color:  #462F1F;*/
+}
+
+/* create */
+.active-scaffold h4,
+.active-scaffold h5 {
+padding: 2px;
+margin: 0;
+text-transform: none;
+color: #462F1F;
+font: bold 14px Arial, Helvetica, sans-serif;
+}
+
+.active-scaffold input.text-input, .active-scaffold select {
+border:1px solid #462F1F;
+font-size:14px;
+font-weight:normal;
+}
+
+.active-scaffold li.form-element dt {
+padding:2px 0pt;
+}
+
+/* subform */
+.active-scaffold .sub-form .checkbox-list {
+	background-color:#FFFFFF;
+	border:1px solid #462F1F;
+	padding:0pt 2px 2px;
+}
+
+.active-scaffold .sub-form table td {
+	color:#462F1F;
+	vertical-align: middle;
+	text-transform:lowercase;
+	font-size:11px;
+}
+
+.active-scaffold label {
+	color:#462F1F;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size:11px;
+	text-transform:lowercase;
+}
+
+/* message */
+.active-scaffold .info-message {
+	background-color:#F4F1E9;
+	border-left:5px solid #462F1F;
+}
+.active-scaffold .message {
+	color:#462F1F;
+	font-size:11px;
+	font-weight:bold;
+	line-height:12px;
+	margin:2px 7px;
+	padding:5px 20px 5px 5px;
+	position:relative;
+}
+
+/* Table :: Record Rows
+   ============================= */
+.active-scaffold table {
+	padding-right:7px;
+}
+
+.active-scaffold tr.record td {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 11px;
+background-color: #FFFFFF;
+border-bottom: none;
+border-left: solid 0px #f4f1e9;
+padding: 2px;
+color:#625d45;
+text-align:left;
+}
+
+
+.active-scaffold tr.record td.actions {
+border-right: none;
+width: 0pt;
+}
+
+.active-scaffold tr.even-record td {
+background-color: #f8f8f8;
+border-left: solid 0px #f4f1e9;
+}
+
+.active-scaffold tr.record td.sorted {
+/*background-color: #fbf7e2; */
+background-color: #ffffff;
+border-bottom: none;
+}
+
+.active-scaffold tr.even-record td.sorted {
+background-color: #f8f8f8;
+border-bottom: none;
+}
+
+.active-scaffold tbody.records td.empty {
+color: #462F1F;
+text-align: center;
+}
+
+.active-scaffold td.numeric,
+.active-scaffold-calculations td {
+text-align: right;
+}
+
+.active-scaffold .view {
+background-color:#FFFFFF;
+border:1px solid #FAF5D3;
+padding:4px;
+}
+

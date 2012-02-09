@@ -1,0 +1,5 @@
+<%= render :partial => 'show_columns', :locals => {:columns => active_scaffold_config.show.columns} -%>
+
+<p class="form-footer">
+  <%= loading_indicator_tag(:action => :create, :id => params[:id]) %>
+</p>

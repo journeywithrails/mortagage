@@ -1,0 +1,45 @@
+<div id="PgHeadingText">New Loan</div>
+<%
+render_tabnav_ms :new_loan, :html=>{:id=>"PgHeadingTextLink"} do
+  
+  add_tab do |t|
+    t.named 'Saved Proposals'
+    t.links_to :controller => '/new_loan/proposals '
+	t.highlights_on  :controller => 'new_loan/proposals', :action => 'index'
+  end 
+  
+  if !session[:proposal_id].blank?  
+  	add_tab :name => 'Step 1: Borrower Data', :link => {:controller=>'/new_loan/proposals', :action=>'edit', :id => session[:proposal_id]}
+  else  
+  	add_tab :name => 'Step 1: Borrower Data', :link => {:controller=>'/new_loan/proposals', :action=>'new'}
+  end
+  
+  add_tab do |t|
+    t.named 'Step 2: Loan Options'
+	if !params[:id].blank? 
+    t.links_to :controller => "new_loan/proposal_scenarios", :action => 'edit', :id => (current_broker_user.proposals.find(session[:proposal_id]).proposal_scenarios.first if session[:proposal_id])
+    t.disable! unless !params[:proposal_id].blank?
+	t.highlights_on  :controller => 'new_loan/proposal_scenarios', :action => 'edit'
+	else
+    t.links_to :controller => "new_loan/proposal_scenarios", :action => 'new'
+    t.disable! unless !params[:proposal_id].blank?
+	t.highlights_on  :controller => 'new_loan/proposal_scenarios', :action => 'new'
+	end
+  end
+  
+  add_tab do |t|
+    t.named 'Summary'
+    t.links_to :controller=>'new_loan/proposal_scenarios', :action=>'show', :id => (current_broker_user.proposals.find(session[:proposal_id]).proposal_scenarios.first if session[:proposal_id])
+    t.disable! unless !params[:proposal_id].blank?
+	t.highlights_on  :controller => 'new_loan/proposal_scenarios', :action => 'show'
+  end
+  
+  add_tab do |t|
+    t.named 'Comparison'
+    t.links_to :controller=>'new_loan/proposal_scenarios', :action => 'index'
+    t.disable! unless !params[:proposal_id].blank?
+	t.highlights_on  :controller => 'new_loan/proposal_scenarios', :action => 'index'
+  end
+
+end
+%>

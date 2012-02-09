@@ -1,0 +1,14 @@
+<div class="content-std">
+  <%= "<ul>" unless @proposal.errors.empty? %>
+  <%= @proposal.errors.each_full {|e| "<li>#{e.to_s}</li>"} %>
+  <%= "</ul>" unless @proposal.errors.empty? %>
+  
+<% form_for([Proposal.new], :url => new_loan_proposals_path) do |f_proposal| %>
+    <div id="wrapper">
+      <%= render :partial => 'form_fields' %>
+      <div style="clear:both; padding-top:2em">
+      </div>
+    </div>
+  <% end %>
+</div>
+				

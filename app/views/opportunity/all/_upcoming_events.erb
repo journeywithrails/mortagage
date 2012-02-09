@@ -1,0 +1,54 @@
+<div id="upcoming_events" > 
+<table width="320" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+    <td class="CorBg01"></td>
+    <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td width="10" class="CorBg02"></td>
+    <td valign="top" width="300">
+      <div class="Heading01Divs05"><%= render_box_arrow(__FILE__, 'Upcoming Events') %></div>
+      <br /><br /><br /><br />		   
+	  <table width="300" border="0" cellspacing="0" cellpadding="2" class="Text02">	 
+        <% if !household_events.blank? %>
+          <% household_events.each_with_index do |event,i| %>
+            <tr>			
+              <td valign="bottom" width="76" colspan="4">
+				  <div id="upcoming_events<%=i%>">
+				  	<div class="EventDiv" style="border-bottom:1px solid #DDD9C3;">
+						<div class="EventDate" style="width:10%; float:left;">
+						  <span><%= event.date.strftime('%b') %></span><br /><strong><%= event.date.strftime('%d') %></strong>
+					  	</div><div style="width:7%; float:left;">&nbsp;</div>
+					  	<div style="float:left;width:67%;"><span><%= event.name %></span><br /><%= event.message %></div>
+					  	<div align="right" style="width:30px; float:left; padding-top:17px">
+							<%= link_to_remote(image_tag("/images/delete.gif"),
+														 :loading => "Element.show('spinner#{i}');",
+														 :complete => "Element.hide('spinner#{i}');",
+														 :url => { :action => "dismiss_event", :id => event.id,:i => i }) %>
+						</div>
+					  	<div style="float:left;padding-top:16px;">
+							<img src="/images/indicator.gif" alt="" border="0"  id="spinner<%=i%>" style="display:none"/>
+						</div>
+					</div>
+				  </div>
+			  </td>
+			</tr>               
+          <% end %>
+        <% else %>
+          <tr>
+            <td valign="bottom" width="40"  align="center" colspan="3" style="border-bottom:1px solid #DDD9C3;">
+              No Upcoming Events Found
+            </td>
+          </tr>
+        <% end %>
+    </table></td>
+    <td width="10" class="CorBg03"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+    <td class="CorBg04"></td>
+    <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+  </tr>
+</table>
+</div>

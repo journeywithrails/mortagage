@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+default:
+  user: authorized_user
+  account_id: default
+  head_of_hh_person: default
+  city: "North Pole"
+  street_name: North Pole
+

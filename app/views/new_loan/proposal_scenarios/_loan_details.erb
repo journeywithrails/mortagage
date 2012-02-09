@@ -1,0 +1,45 @@
+<table width="130" align="left">
+
+										<tr><td valign="middle" align="center" class="<%= td_class %>">
+<% if @proposal.proposal_scenarios.count < 5 %>	
+<%= proposal_scenario.name if !proposal_scenario.blank? %>	
+<% else %>
+<%= select_tag 'proposal_scenario_id', options_for_select(@proposal.proposal_scenarios.map {|t| [t.name, t.id]}), :id => 'proposal_scenarios_id',:class=> "Combo01" %>
+<% end %>
+
+										</td></tr>	
+																			
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  class="<%= td_class %>">&nbsp; </td></tr>
+										<tr><td valign="middle"  >&nbsp; </td></tr>
+										<tr><td valign="middle" align="center"> <input type="checkbox" /> <span class="SmallText01">Add to Report</span></td></tr>											
+										</table>
+										
+<table width="5" align="left">
+										<tr><td>&nbsp;</td></tr>
+										</table>

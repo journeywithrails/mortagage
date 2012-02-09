@@ -1,0 +1,35 @@
+<tr>
+  <td width="120px"  colspan="5"><strong>Property Use</strong></td>
+</tr>
+<% even = false %>
+<% @region_property_use_by_days.keys.each do |property_use_name| %>
+  <% if @region_property_use_by_days[property_use_name].length > 0 then %>
+    <% current_pu_by_days = @user_property_use_by_days[property_use_name] %>
+    <% even ? tr_class = "Row02" : tr_class = "Row01" %>
+    <tr class="<%= tr_class %>">
+      <td><%= property_use_name %></td>
+      <td/>
+      <% period = Portfolio::DemographicsController::HALF_YEAR %>
+      <td align="center"><span>
+          <%= divide_pct_label(current_pu_by_days[period].count, @user_property_use[period].count) unless current_pu_by_days[period].nil? %>
+      </span></td>
+      <td/>
+      <% period = Portfolio::DemographicsController::FULL_YEAR %>
+      <td align="center"><span>
+          <%= divide_pct_label(current_pu_by_days[period].count, @user_property_use[period].count) unless current_pu_by_days[period].nil? %>
+      </span></td>
+      <td/>
+      <% period = Portfolio::DemographicsController::LIFETIME %>
+      <td align="center"><span>
+          <%= divide_pct_label(current_pu_by_days[period].count, @user_property_use[period].count) unless current_pu_by_days[period].nil? %>
+      </span></td>
+      <td/>
+      <td align="center"><span>
+          <%= divide_pct_label(@region_property_use_by_days[property_use_name][Portfolio::DemographicsController::HALF_YEAR].count,
+            @region_property_use[Portfolio::DemographicsController::HALF_YEAR].count) \
+            unless @region_property_use_by_days[property_use_name][Portfolio::DemographicsController::HALF_YEAR].nil? %>
+      </span></td>
+    </tr>
+    <% even = !even %>
+  <% end %>
+<% end %>

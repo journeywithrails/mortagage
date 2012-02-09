@@ -1,0 +1,26 @@
+<div class="Heading01Divs05">
+  <%= render_box_arrow(__FILE__, 'Portfolio Watch') %>
+</div><br /><br /><br /><br />
+
+<table width="300" border="0" cellspacing="0" cellpadding="2" class="Text02">
+  <tr>
+    <td valign="middle" width="16"><img src="/images/bullet_arrow.gif" alt="" border="0" /></td>
+    <td width="10"></td>
+    <td valign="middle">Last Login: <span><%= current_user.last_login_at.strftime("%B %d, %Y") if !current_user.last_login_at.blank? %></span></td>
+  </tr>
+  <tr>
+    <td valign="middle"><img src="/images/bullet_arrow.gif" alt="" border="0" /></td>
+    <td></td>
+    <td valign="middle"><span><%= number_with_delimiter(current_broker_user.new_opportunity_count) %></span> new loan opportunities calculated today</td>
+  </tr>
+  <tr>
+    <td valign="middle"><img src="/images/bullet_arrow.gif" alt="" border="0" /></td>
+    <td></td>
+    <td valign="middle"><%= last_synchronized_label %></td>
+  </tr>
+  <tr>
+    <td valign="middle"><img src="/images/bullet_arrow.gif" alt="" border="0" /></td>
+    <td></td>
+    <td valign="middle"><%= last_campaign_sent_label %></td>
+  </tr>
+</table>

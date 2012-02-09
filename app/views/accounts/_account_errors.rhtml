@@ -1,0 +1,8 @@
+<% if @account.errors.any? %>
+  <div class="errorExplanation">
+    <h2>Errors encountered with your account information:</h2>
+    <ul>
+      <%= @account.errors.full_messages.map {|m| content_tag('li', m)} %>
+    </ul>
+  </div>
+<% end %>

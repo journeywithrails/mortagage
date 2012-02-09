@@ -1,0 +1,40 @@
+<div id="TopLink">
+  <%
+  render_tabnav :main, :html => {:class=>'main_tabnav'} do
+    controller_module = controller.subtab_nav
+
+    if controller_module == 'opportunity'
+      add_tab :name => link_to( image_tag("/images/toplink_opportunities02.gif", :id=>"Image9"), :controller=>'/opportunity/all' )
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_opportunities01.gif", :id=>"Image9", :mouseover => '/images/toplink_opportunities02.gif'), :controller=>'/opportunity/all' )
+    end
+
+    if controller_module == 'portfolio'
+      add_tab :name => link_to( image_tag("/images/toplink_loanportfolio02.gif", :id=>"Image4"), :controller=>'/portfolio/view_household_loan' )
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_loanportfolio01.gif", :id=>"Image4", :mouseover => "/images/toplink_loanportfolio02.gif"), :controller=>'/portfolio/view_household_loan' )
+    end
+
+    if controller_module == 'new_loan'
+      add_tab :name => link_to( image_tag("/images/toplink_newloan02.gif", :id=>"Image5"), :controller=>'/new_loan/proposals')
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_newloan01.gif", :id=>"Image5", :mouseover =>  "/images/toplink_newloan02.gif"), :controller=>'/new_loan/proposals' )
+    end
+
+    if controller_module == 'campaigns'
+      add_tab :name => link_to( image_tag("/images/toplink_campaigns02.gif", :id=>"Image6"), :controller=>'/campaigns/list' )
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_campaigns01.gif", :id=>"Image6", :mouseover => "/images/toplink_campaigns02.gif"), :controller=>'/campaigns/list' )
+    end
+
+    if controller_module == 'network'
+      add_tab :name => link_to( image_tag("/images/toplink_network02.gif", :id=>"Image7"),{:controller=>'/network/all'},{:class=>'bord_none'} )
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_network01.gif", :id=>"Image7", :mouseover => "/images/toplink_network02.gif"), {:controller=>'/network/all'},{:class=>'bord_none' })
+    end
+
+    # add_tab :name => 'a', :link => {:controller=>'/admin'} if current_user.admin?
+  end
+  %>
+<div style="clear:both"></div>
+</div>

@@ -1,0 +1,42 @@
+<table border="0" cellspacing="0" cellpadding="0" id="TopPath">
+  <tr>
+    <td valign="top">
+      Household Overview
+    </td>
+    <td valign="top">
+      <img src="/images/topatharrow.gif" alt="" border="0" />
+    </td>
+    <td valign="top" class="Text01">
+      <%=  @household.to_label %>
+    </td>
+  </tr>
+</table>
+
+<br/>
+<table width="914" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" with="270">
+      <!--opportunities,Loan History,Campaigns data  -->
+      <%= render :partial => "opportunities" %>
+      <%= render :partial => "loan_history" %>
+      <%= render :partial => "campaigns" %>
+      <!-- End of opportunities,Loan History,Campaigns data  -->
+    </td>
+    <td width="10"></td>
+    <td width="384" valign="top">
+      <!--Property details  -->
+      <%= render :partial => "property_details" %>
+      <div  id="notes">
+        <%= render :partial => "notes", :locals => {:notes => @household.household_notes} %>
+      </div>
+    </td>
+    <td width="10"></td>
+    <!-- End of Property details  -->
+    <td width="240" valign="top">
+      <!-- People and News details  -->
+      <%= render :partial => "people" %>
+      <%= render :partial => "news" %>
+    </td>
+  </tr>
+</table>
+<!-- End of People and News details  -->

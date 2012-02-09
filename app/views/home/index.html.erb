@@ -1,0 +1,16 @@
+<h1>Welcome to Mortgage Science!</h1>
+
+<p>New user? <b><%= link_to 'Start here', :controller=>'signup' %></b></p>
+<br>
+<p>Existing users, login here:</p>
+
+<% form_tag session_path do -%>
+	<p>
+          <label for="email">Email</label>
+          <%= text_field_tag 'email' %><br>
+	  <label for="password">Password</label>
+	  <%= password_field_tag 'password' %><br>
+        </p>
+	<p><%= submit_tag 'Log in' %><br></p>
+	<p><%= link_to 'I forgot my password', forgot_password_users_url %></p>
+<% end -%>

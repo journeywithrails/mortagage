@@ -1,0 +1,29 @@
+<div id="PgHeadingText">Campaigns</div>
+<%
+render_tabnav_ms :campaigns, :html=>{:id=>"PgHeadingTextLink"} do
+    add_tab :name => 'All Campaigns', :link => {:controller=>'/campaigns', :action=>'list'}
+
+	add_tab do |t|
+	t.named 'Wizard'
+	t.links_to :controller=>'/campaigns/wizard'
+	end
+	
+	add_tab do |t|
+	t.named 'Campaign Types'
+	t.links_to :controller=>'/campaigns/campaign_types'
+	end
+  
+	add_tab do |t|
+	t.named 'Report Templates'
+	t.links_to :controller => '',:action => '',:id => session[:campaign_id]
+	t.disable! unless !session[:campaign_id].blank?
+	end
+	
+	add_tab do |t|
+	t.named 'Email Templates'
+	t.links_to :controller => '',:action => '',:id => session[:campaign_id]
+	t.disable! unless !session[:campaign_id].blank?
+	end	
+
+end
+%>

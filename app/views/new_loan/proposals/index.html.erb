@@ -1,0 +1,94 @@
+ <table width="914" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center" valign="top" height="9"></td>
+    </tr>
+    <tr>
+      <td align="left" valign="top" with="584"><span class="HeadingInnerpages">Saved Proposals</span></td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" with="584">
+        <% remote_form_for [:proposal, @search],
+          :before => "Element.show('spinner');",
+          :complete => "Element.hide('spinner');",
+          :url => do_search_new_loan_proposals_path do |f| %>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="left"><table width="670" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="118" height="22" class="TabInner">Search</td>
+                    <td>&nbsp;</td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td align="left" class="BasicSearchBg" style="padding-left:20px; padding-right:20px;">
+                <table border="0" cellspacing="0" cellpadding="0" align="right">
+                  <tr>
+                    <td height="10"></td>
+                  </tr>
+                  <tr>
+                    <td><input  id="search_submit" name="Search" input type="image" src="/images/btn02_search.gif"  value="submit">
+                    <img src="/images/indicator.gif" alt="" border="0"  id="spinner" style="display:none"/></td>
+                  </tr>
+                </table>
+                <table width="600" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="10"></td>
+                  </tr>
+                  <tr>
+                    <td valign="middle" colspan="2">
+                      <% f.fields_for @search.conditions do |proposal| %>
+                        <table width="600" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td class="SubHeadingBlack">Name</td>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td colspan="4"><%= proposal.text_field :name_like, :label => false, :class=>"SearchInput01a01"%> </td>
+                          </tr>
+                          <tr>
+                            <td height="5"></td>
+                          </tr>
+                          <tr>
+                            <td class="SubHeadingBlack">Date Range:</td>
+                            <td width="10">&nbsp;</td>
+                            <td class="Heading02TextSmall" style="padding-top:3px;">From</td>
+                            <td><%= proposal.calendar_date_select 'updated_at_gte',  :class => "SearchInput03", :label=>false %> </td>
+                            <td width="10">&nbsp;</td>
+                            <td class="Heading02TextSmall" style="padding-top:3px;">To</td>
+                            <td><%= proposal.calendar_date_select 'updated_at_lte',  :class => "SearchInput03", :label=>false %> </td>
+                          </tr>
+                        </table>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="10"></td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td height="20"></td>
+            </tr>
+            <tr>
+              <td height="60" align="center">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td  valign="top">
+                      <div id='search_results'>
+                        <%= render :partial => "search_results" %>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+
+

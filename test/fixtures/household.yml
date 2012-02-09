@@ -1,0 +1,11 @@
+default:
+  user: authorized_user
+  head_of_hh_person: default
+
+eastwood_household:
+  user: authorized_user
+  head_of_hh_person: eastwood
+
+guiliani_household:
+  user: authorized_user
+  head_of_hh_person: guiliani

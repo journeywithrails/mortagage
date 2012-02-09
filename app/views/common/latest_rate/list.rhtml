@@ -1,0 +1,22 @@
+<div class="box-right-2">
+    <div class='box'>
+        <div id="boxarrow">
+            <a href="#"><%= image_tag("/images/arrow1.gif", :name=> "arrow3", :alt=>"more", :border=>"0", :id=>"arrow3", :mouseover=>"/images/arrow2.gif") %></a>
+        </div>
+        <div class='boxtop'>
+            <div><%= active_scaffold_config.list.user.label %></div>
+        </div>
+        <div class='boxcontent'>
+            <table class="default">
+                <tr class="label">
+                    <td width="2%">&nbsp;</td>
+                    <% active_scaffold_config.list.columns.each do |column| -%>
+                    	<td><%= column.label %></td>
+                    <% end %>
+                </tr>
+                <%= render :partial => 'list' %>
+            </table>
+        </div>
+        <div class='boxbottom'><div></div></div>
+    </div>
+</div>

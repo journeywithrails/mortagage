@@ -1,0 +1,6 @@
+<%
+     render_tabnav_ms :campaigns_campaign_types, :html=>{:class =>"TabInner"} do
+       add_tab :name => 'Basic Search',:link => {:controller=>'/campaigns/campaign_types',:action => 'show'}		
+       add_tab :name => 'Advanced Search',:link =>{:controller=>'/campaigns/campaign_types_adv',:action=>'show'}		
+     end
+%>

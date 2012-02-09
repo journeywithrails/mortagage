@@ -1,0 +1,53 @@
+<br/>
+<table width="270" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+    <td class="CorBg01"></td>
+    <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td width="10" class="CorBg02"></td>
+    <td width="250" valign="top">
+      <div class="Heading01Divs06">
+	  <%= render_box_arrow(__FILE__, "Nearby Homes for Sale") %>
+	  
+	  </div><br /><br /><br /><br />
+
+      <table width="250" border="0" cellspacing="0" cellpadding="0" class="Text01">
+        <% for property in @properties_for_sale %>
+          <tr>
+            <td valign="top" colspan="3">
+            <span><%= link_to (property.property_address, url_for(property.url),{:target => "_blank",:class =>"Link01" }) %></span></td>
+          </tr>
+          <% begin
+            @dist = Location.distance_between(@property.property_address,property.property_address).round
+          rescue
+            @dist = 0
+          end %>
+          <tr>
+            <td valign="top">Proximity: <%= @dist %> miles</td>
+            <td width="10"></td>
+            <td valign="top" align="right">Sq. Feet: <%= property.area %></td>
+          </tr>
+          <tr>
+            <td valign="top"><%= number_to_currency(property.price, :precision=>0) %></td>
+            <td></td>
+            <td valign="top" align="right">Price/Sq.Ft: <%= number_to_currency(property.price/property.area, :precision=>0) %></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        <% end %>
+      </table>
+    </td>
+    <td width="10" class="CorBg03"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+    <td class="CorBg04"></td>
+    <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+  </tr>
+</table>
+
+
+

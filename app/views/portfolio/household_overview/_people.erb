@@ -1,0 +1,108 @@
+<table width="240" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+    <td class="CorBg01"></td>
+    <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td width="10" class="CorBg02"></td>
+    <td valign="top" width="220">
+      <div class="Heading01Divs04"><%= render_box_arrow(__FILE__, "People") %></div><br /><br /><br /><br />
+
+      <table width="220" border="0" cellspacing="0" cellpadding="0" class="Text01">
+        <% @household.people.each do |person| %>
+          <tr>
+            <td valign="bottom">
+            <%= !person.loans_as_borrower_person[0].borrower_person_id.blank? ? "Borrower" : "Co-Borrower" if !person.loans_as_borrower_person[0].blank? %></td>
+            <td width="8"></td>
+            <td valign="bottom">
+            Age</td>
+            <td width="8"></td>
+            <td valign="bottom">
+            Employer</td>
+          </tr>
+
+          <tr>
+            <td valign="top">
+            <span class="TextColor01"><%=person.to_label%></span></td>
+            <td></td>
+            <td valign="top">
+            <span><%=person.age_in_years%></span></td>
+            <td></td>
+            <td valign="top">
+            <span><%= h(@person_financial.employer_name || 'Unknown') %></span></td>
+          </tr>
+
+          <tr>
+            <td colspan="2"></td>
+            <td valign="top" colspan="3">
+              Home: <%=person.phone_home%><br />
+              Office: <%=person.phone_work%><br />
+              Mobile: <%=person.phone_mobile%><br />
+            email: <%=person.email%><br /></td>
+          </tr>
+          <tr>
+            <td class="Dots" colspan="5">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td valign="top" colspan="5">
+            <table width="220" border="0" cellspacing="0" cellpadding="0" class="Text01">
+              <tr>
+                <td width="75" valign="bottom">Dependents</td>
+                <td width="8">&nbsp;</td>
+                <td valign="bottom" align="center">
+                Age</td>
+              </tr>
+              <% @person_financial.parsed_dependents.each_with_index do |age, index| %>
+                <tr>
+                  <td valign="top"><span class="TextColor01">Dependent <%= index + 1 %></span></td>
+                  <td></td>
+                  <td valign="top" align="center"><%= h age %></td>
+                </tr>
+              <% end %>
+          </table></td>
+        </tr>
+
+        <tr>
+          <td class="Dots" colspan="5">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td valign="bottom" colspan="5">
+          Related Loans</td>
+        </tr>
+        <% if @related_loans.length < 1 %>
+          <tr><td valign="top">No related loans</td></tr>
+        <% end %>
+        <% @related_loans.each do |loan| %>
+          <tr>
+            <td valign="top">
+            <span class="TextColor01"><%= loan.borrower_person.to_label %></span></td>
+            <td></td>
+            <td valign="top" colspan="3">
+            <span><%= loan.property.to_label %></span></td>
+          </tr>
+        <% end %>
+    </table></td>
+    <td width="10" class="CorBg03"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+    <td class="CorBg04"></td>
+    <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+
+

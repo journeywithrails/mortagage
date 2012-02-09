@@ -1,0 +1,34 @@
+<table border="0" cellspacing="0" cellpadding="0" id="TopPath">
+  <tr>
+    <td valign="top">
+    <%= link_to "Households",:controller =>"portfolio/view_household_loan" %></td>
+    <td valign="top">
+    <img src="/images/topatharrow.gif" alt="" border="0" /></td>
+    <td valign="top">
+    <%= link_to "#{@household.to_label}", portfolio_household_overview_path(@property.household_id) %></td>
+    <td valign="top">
+    <img src="/images/topatharrow.gif" alt="" border="0" /></td>
+    <td valign="top" class="Text01">
+    <%= @property.property_address %></td>
+  </tr>
+</table>
+
+<br/>
+<table width="914"  border="0" cellspacing="0" cellpadding="0">
+       <tr>
+    <!--Map,Loan History,Campaigns,Near by MLS Listing data  -->
+    <td valign="top" with="270">
+      <%= render :partial => "home_history_map" %>
+      <%= render :partial => "loan_history" %>
+      <%= render :partial => "campaigns" %>
+      <%= render :partial => "near_by_mls_listings" %>
+    </td>
+    <!-- End of Map,Loan History,Campaigns,Near by MLS Listing data  -->
+    <td width="10"></td>
+    <!--Property Dashboard details  -->
+    <td width="634" valign="top">
+      <%= render :partial => "property_mailing_details" %>
+    </td>
+  </tr>
+</table>			
+<!-- End of Property Dashboard details  -->

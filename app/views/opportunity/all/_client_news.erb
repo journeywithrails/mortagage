@@ -1,0 +1,75 @@
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<%= javascript_include_tag "opportunities_news" %>
+<%= client_related_news(@households_for_news_search) %>
+<div class="Heading01Divs">  
+  <%= render_box_arrow(__FILE__, "Client Related News") %>
+</div>
+<br />
+<br />
+<table width="564" border="0" cellspacing="0" cellpadding="0" class="Text01">
+  <tr>
+    <td valign="top">
+      <table width="562" border="0" cellspacing="0" cellpadding="2" class="sortable scroll01" >
+
+	   <thead>
+          <tr>
+            <td width="84" valign="bottom">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="bottom"class="SubHeadingBlack">Event</td>
+                  <td width="2"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="10"></td>
+            <td width="203" valign="bottom">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="bottom"class="SubHeadingBlack">Item</td>
+                  <td width="2"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="10"></td>
+            <td width="160" valign="bottom">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="bottom"class="SubHeadingBlack">Involves</td>
+                  <td width="2"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="10"></td>
+            <td width="77" valign="bottom">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="bottom"class="SubHeadingBlack">Date</td>
+                  <td width="2"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </thead>
+		
+	  <tbody id="results_div" style="height:130px; overflow-y:auto;overflow-x:hidden;">
+	   <%
+		@properties_for_sale.each do |property_list|
+		  td_class = cycle("Row02", "Row01")
+		%>
+         <tr class="<%= td_class %>">			 
+		 <td width="84" valign="top"><%= link_to("Home Listed", url_for(property_list.url), {:target => "_blank", :class => "Link01"})%></td>
+		  <td width="10"></td>
+		  <td !width="203" valign="top"><%= property_list.property_address %></td>
+		  <td width="10"></td>
+		  <td width="160" valign="top"><span><%= property_list.property.household.to_label %> </span></td>
+		  <td width="10"></td>
+		  <td width="77" valign="top"><%= property_list.created_at.strftime('%m/%d/%Y') if !property_list.created_at.blank?  %></td>
+	
+		</tr>	
+		<% end %> 
+		</tbody>
+		
+						
+    </table></td>
+  </tr>
+</table>

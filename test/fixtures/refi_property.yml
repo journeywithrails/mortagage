@@ -1,0 +1,6 @@
+base_case_property:
+  refi_scenario: base_case
+  property: mofo
+  property_valuation: default
+  
+

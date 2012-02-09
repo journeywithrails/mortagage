@@ -1,0 +1,2 @@
+module Network::SearchHelper
+end

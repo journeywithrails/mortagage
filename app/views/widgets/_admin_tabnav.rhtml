@@ -1,0 +1,17 @@
+<div id="PgHeadingText">Admin</div>
+<% 
+render_tabnav_ms :admin, :html=>{:id=>"PgHeadingTextLink"} do
+	add_tab :name => 'Household', :link => {:controller=>'/admin/household'}
+	add_tab :name => 'Loan', :link => {:controller=>'/admin/loan'}
+	add_tab :name => 'Property', :link => {:controller=>'/admin/property'}
+	add_tab :name => 'Person', :link => {:controller=>'/admin/person'}
+	add_tab :name => 'Proposal', :link => {:controller=>'/admin/proposal'}
+	add_tab :name => 'Rate', :link => {:controller=>'/admin/rate'}
+	add_tab :name => 'Tax', :link => {:controller=>'/admin/tax_filing_status'}
+	add_tab :name => 'Account', :link => {:controller=>'/admin/account'}	
+	add_tab :name => 'Upload', :link => {:controller=>'/admin/account_upload'}	
+	add_tab :name => 'Job', :link => {:controller=>'/admin/job'}
+	add_tab :name => 'Server', :link => {:controller=>'/admin/server'}
+	add_tab :name => 'Global property', :link => {:controller=>'/admin/global_property'}
+end 
+%>

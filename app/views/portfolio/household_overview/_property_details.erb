@@ -1,0 +1,114 @@
+
+<table width="384" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+    <td class="CorBg01"></td>
+    <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td width="10" class="CorBg02"></td>
+    <td width="364" valign="top">
+      <div class="Heading01Divs03">
+       <%= render_box_arrow(__FILE__, @household.to_label) %>
+	  </div>
+      <br /><br /><br /><br />
+
+      <table width="364" border="0" cellspacing="0" cellpadding="0" class="Text01">
+        <tr>
+          <td valign="top" colspan="7">
+            Mailing Address:<br />
+          <span class="TextLarge01"><%=@household.address%></span></td>
+        </tr>
+        <tr>
+          <td class="Dots" colspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td valign="top" class="TableHeading">Address</td>
+          <td></td>
+          <td valign="top" align="center" class="TableHeading">Debt</td>
+          <td></td>
+          <td valign="top" align="center" class="TableHeading">Equity</td>
+          <td></td>
+          <td valign="top" align="center" class="TableHeading">MAE Index</td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <%if !@household.base_case_refi_scenario.blank?%>
+          <% @household.base_case_refi_scenario.refi_properties.each do |refi_property| %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+
+              <td></td>
+            </tr>
+
+            <tr>
+              <td valign="top">
+              <span class="TextColor01"><%=link_to refi_property.property.to_label , {:action =>'property_detail',:property_id =>refi_property.property.id, :id => @household.id},:class =>"Link02" %></span></td>
+              <td>&nbsp; </td>
+              <td valign="top" align="center">
+              <span><%=number_to_currency(refi_property.total_loan_amount,:precision=>0)%></span></td>				
+              <td> &nbsp;&nbsp;</td>
+              <td valign="top" align="center">
+			  <% if refi_property.current_valuation - refi_property.total_loan_amount > 0 %>
+              <span class="TextColor02">
+			  <% else %>
+			  <span class="TextColor0201">
+			  <% end %>
+			 <%= number_to_currency((refi_property.current_valuation - refi_property.total_loan_amount),:precision=>0)%>
+			  </span>
+			  </td>
+			  
+			  <td>&nbsp; </td>
+              <td valign="top" align="center">
+              <%=@household.base_case_refi_scenario.household.best_mae_index%></td>
+
+            </tr>
+            <tr>
+              <td valign="top">Borrower</td>
+            </tr>
+            <tr>
+              <td valign="top" colspan="4"></td>
+              <td valign="top" align="right" colspan="3">
+              <span class="TextColor01"><a href="#" target="_self" class="Link02">View Opportunities</a></span></td>
+            </tr>
+            <tr>
+              <td class="Dots" colspan="7">&nbsp;</td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+          <% end %>
+        <% end %>
+
+        <tr>
+          <td height="20"></td>
+        </tr>
+        <tr>
+          <td align="right" colspan="7">
+          <%= link_to image_tag("/images/btn_showpropertydashboard.gif") , :action => "property_dashboard", :id => params[:id] %></td>
+        </tr>
+    </table></td>
+    <td width="10" class="CorBg03"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+    <td class="CorBg04"></td>
+    <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+
+
+

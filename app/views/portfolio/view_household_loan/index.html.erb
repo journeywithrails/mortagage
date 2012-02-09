@@ -1,0 +1,64 @@
+<table width="914" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top" height="9"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" with="584"><span class="HeadingInnerpages">Portfolio Search</span></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" valign="top" with="584">
+      <%= tabnav :portfolio_search %>
+    </td>
+  </tr>
+  <tr>
+    <td height="60" align="left" class="BasicSearchBg" style="padding-left:20px;">
+      <table width="600" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td colspan="3">
+            <div id="basic" >
+              <% remote_form_for [:porfolio, @search],
+			  					 :before => "Element.show('spinner');",
+								 :success => "Element.hide('spinner');",
+								 :url => do_search_portfolio_view_household_loans_path do |f| %>
+
+                <% f.fields_for @search.conditions do |household| %>
+                  <table width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="35">Name</td>
+                      <td width="205" align="left">
+                        <% household.fields_for 'group' do |grp| %>
+                          <%= grp.text_field :names_keywords, :label => false, :class=>"SearchInput" %>
+                        <% end %>
+                      </td>
+                      <td width="364" align="left">
+
+                        <input  id="search_submit" name="Search" input type="image" src="/images/btn02_search.gif"  value="submit">
+                        <img src="/images/indicator.gif" alt="" border="0"  id="spinner" style="display:none"/>
+					  </td>
+                    </tr>
+                  </table>
+                <% end %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="10"></td>
+  </tr>
+
+  <tr>
+    <td height="60" align="center">     
+	  <div id='search_results'>	     
+          <%= render :partial => "search_results" %>  
+		      
+	  </div>     
+    </td>
+  </tr>
+</table>	  
+

@@ -1,0 +1,7 @@
+<div id="PgHeadingText">Network</div>
+<%
+render_tabnav_ms :network, :html=>{:id=>"PgHeadingTextLink"} do
+  add_tab :name => 'all', :link => {:controller=>'network/all'}
+  add_tab :name => 'search', :link => {:controller=>'network/search'}
+end
+%>

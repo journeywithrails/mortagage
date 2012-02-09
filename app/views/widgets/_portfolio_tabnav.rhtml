@@ -1,0 +1,26 @@
+<div id="PgHeadingText">Loan Portfolio</div>
+<%
+render_tabnav_ms :portfolio, :html=>{:id=>"PgHeadingTextLink"} do
+  add_tab :name => 'Portfolio Search', :link => {:controller=>'/portfolio/view_household_loan'}
+
+  add_tab do |t|
+    t.named 'Household Overview'
+    t.links_to :controller => 'portfolio/household_overview',:action =>'show', :id => session[:household_id]
+    t.disable! unless !session[:household_id].blank?
+  end
+
+  add_tab do |t|
+    t.named 'Property Dashboard'
+	t.links_to :controller => 'portfolio/household_overview',:action => 'property_dashboard',:id => session[:household_id]
+    t.disable! unless !session[:household_id].blank?
+  end
+
+  add_tab do |t|
+    t.named 'Property Detail'
+	t.links_to :controller => 'portfolio/household_overview',:action => 'property_detail',:id => session[:household_id],:property_id => session[:property_id]
+    t.disable! unless !session[:household_id].blank? and !session[:property_id].blank?
+  end
+
+  add_tab :name => 'Demographics', :link => {:controller=>'/portfolio/demographics'}
+end
+%>

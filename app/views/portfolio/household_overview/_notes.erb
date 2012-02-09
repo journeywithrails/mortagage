@@ -1,0 +1,68 @@
+<table width="384" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+    <td class="CorBg01"></td>
+    <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td width="10" class="CorBg02"></td>
+    <td width="364" valign="top">
+
+      <div class="Heading01Divs03"><%= render_box_arrow(__FILE__, "Notes") %></div><br /><br /><br /><br />
+      
+      <table width="364" border="0" cellspacing="0" cellpadding="0" class="Text01">
+        <% if !notes.blank? %>
+          <% for notedata in notes %>
+            <tr>
+              <td valign="top">
+              <a href="#" target="_self" class="Link01"><%= notedata.created_at.strftime('%m/%d/%Y') %></a></td>
+              <td>&nbsp;&nbsp;</td>
+              <td valign="top" align="left">
+              <span><%= notedata.note.length > 50 ? notedata.note.to(50) + "..." : notedata.note %></span></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr><td colspan="3">No Notes</td></tr>
+        <% end %>
+        <tr>
+          <td height="20"></td>
+        </tr>
+        <tr>
+          <td align="right" colspan="3">
+		   	<img src="/images/indicator.gif" alt="" border="0"  id="spinner" style="display:none"/>
+            <a href="#" onclick="Effect.toggle('note_form', 'blind', {duration:0.4}); return false;"><img src="/images/btn_addnotes.gif" alt="" border="0" />
+            </a></td></tr>
+			<tr>
+			<td align="right" colspan="3">
+            <div id="note_form" style="display:none;">
+              <% form_remote_tag( 
+			  		  :url => {:action => 'create_note', :id => params[:id]},
+					  :update => 'notes',
+					  :loading => "Element.show('spinner');") do%>
+                <table width="315">
+                  <tr>
+				  	<th>Note:</th>
+					<td>&nbsp;</td>                                      
+                    <td  align="left"><%= text_area_tag "household_note[note]" ,:class=>'TextArea01',:id =>"note_id" %></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+					<td>&nbsp;</td>  					
+					<td  align="left"><%= image_submit_tag("btn02_save.gif") %> or <a href="#" onclick="Effect.BlindUp('note_form', {duration:0.4}); document.getElementById('note_id').value = '' ; return false;">cancel</a></td>               
+                  </tr>
+                </table>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+    </table></td>
+	<td width="10" class="CorBg03"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+    <td class="CorBg04"></td>
+    <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+  </tr>
+</table>
+
+

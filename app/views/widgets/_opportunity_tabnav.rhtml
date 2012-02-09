@@ -1,0 +1,13 @@
+<div id="PgHeadingText">Opportunities</div>
+<%
+render_tabnav_ms :opportunity, :html=>{:id=>"PgHeadingTextLink"} do
+  add_tab :name => 'All', :link => {:controller=>'/opportunity/all'}
+  add_tab :name => 'Refinance', :link => {:controller=>'/opportunity/refinance'}
+  add_tab :name => 'Consolidation', :link => {:controller=>'/opportunity/debt'}
+  add_tab :name => 'College', :link => {:controller=>'/opportunity/college'}
+  add_tab :name => 'Retirement', :link => {:controller=>'/opportunity/retire'}
+  # add_tab :name => 'Investment properties', :link => {:controller=>'/opportunity/invest'}
+  add_tab :name => 'Rate Risk', :link => {:controller=>'/opportunity/raterisk'}
+  add_tab :name => 'Reports', :link => {:controller=>'/opportunity/reports'} 
+end
+%>

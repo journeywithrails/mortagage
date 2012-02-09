@@ -1,0 +1,54 @@
+debug.log
+*.swp
+# /
+/.swp
+/tags
+/nbproject
+/.autotest
+
+# /app/views/content/
+/app/views/content/css
+/app/views/content/stylesheets
+/app/views/content/images
+
+# /config/
+/config/database.yml
+/config/config.yml
+/config/environment.rb
+/config/gmaps_api_key.yml copy.template
+/config/gmaps_api_key.yml
+
+# /db/
+/db/*schema.rb
+/db/account_test_structure.sql
+
+# /log/
+/log/*
+
+# /public/
+/public/blank.html
+/public/user
+/public/account
+/public/household_report
+
+# /public/images/
+/public/images/active_scaffold
+
+# /public/javascripts/
+/public/javascripts/active_scaffold
+
+# /public/javascripts/active_scaffold/
+/public/javascripts/active_scaffold/DO_NOT_EDIT
+
+# /public/stylesheets/
+/public/stylesheets/active_scaffold
+
+# /public/stylesheets/active_scaffold/
+/public/stylesheets/active_scaffold/DO_NOT_EDIT
+
+# /test/
+/test/tmp
+
+# /test/functional/opportunity/
+/test/functional/opportunity/.college_controller_test.rb.swo
+/test/functional/opportunity/.swp

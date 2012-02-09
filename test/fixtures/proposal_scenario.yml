@@ -1,0 +1,11 @@
+first_scenario_for_default:
+  proposal: default
+
+second_scenario_for_default:
+  proposal: default
+
+first_scenario_for_other_broker:
+  proposal: belongs_to_other_broker
+
+guiliani_thirty_year_fixed:
+  proposal: guiliani_apartment 

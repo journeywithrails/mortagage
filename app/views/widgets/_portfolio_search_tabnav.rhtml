@@ -1,0 +1,9 @@
+<%
+     render_tabnav_ms :portfolio_search, :html=>{:class =>"TabInner"} do
+       add_tab :name => 'Basic Search',:link => portfolio_view_household_loans_path
+       add_tab :name => 'Advanced Search',:link => advanced_search_portfolio_view_household_loans_path
+       add_tab :name => 'Files to Review',:link => search_files_to_review_portfolio_view_household_loans_path 
+       add_tab :name => 'Incomplete Files',:link => incomplete_files_portfolio_view_household_loans_path 
+     end
+%>
+

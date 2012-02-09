@@ -1,0 +1,31 @@
+
+<table width="914"  border="0" cellspacing="0" cellpadding="0" class="Text01">
+	<tr>
+		<td height="5"></td>
+	</tr>
+	<tr>
+		<td valign="top" colspan="5" align="right">
+			<%= link_to image_tag("/images/btn_viewpage2_01.gif", :alt=>"View Page 2" ,:border=>"0"),:action => "property_information2",:id => params[:id] %>
+		</td>
+	</tr>
+	<tr>
+		<td height="15"></td>
+	</tr>
+	<tr>
+		<td valign="top" with="270">							
+			<%= render :partial => "property_information" %>			
+			<%= render :partial => "portfolio/household_overview/loan_history" %>
+			<%= render :partial => "portfolio/household_overview/campaigns" %>
+		</td>
+		<td width="10"></td>
+		<td width="384" valign="top">
+			<%= render :partial => "borrower_co_borrower_information" %>
+		</td>
+		<td width="10"></td>
+		<td width="240" valign="top">
+			<%= render :partial => "current_mortgage_detail" %>
+		</td>
+	</tr>
+</table>
+
+

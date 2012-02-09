@@ -1,0 +1,42 @@
+<div id="loan_refinance_opportunity" style="float:left;">
+<%=
+  ambling_chart(:column,
+    :chart_data => @loan_refinance_opportunity_chart_data,
+    :id => "loan_refinance_opportunity", :width => 350, :height => 280,	
+    :chart_settings => Ambling::Column::Settings.new({
+		:thousands_separator => ",",
+        :column => {
+          :type => "stacked", :width => 90, :spacing => 5,
+          :balloon_text => "{series}, the {title} was {value}",
+          :data_labels => cdata_section("<b>${value}</b>"),
+          :data_labels_position => "inside",
+          :data_labels_text_color => "#ffffff"         
+        },
+        :values => {
+          :category => {:color => "#4A452A"},:value => {:unit =>'$',:unit_position => 'left',:frequency => 1.2,:skip_first => false,:color => "#948A54"}
+        },
+        :plot_area => {
+          :margins => { :left => 80,:top => 40, :bottom => 50}
+        },        
+        :grid => {
+          :category => {:alpha => 0}, :value => {:alpha => 10}
+        },
+        :legend => {
+          :enabled => true, :width => 100, :text_color => "#948A54",
+          :max_columns => 1, :spacing => 2, :text_size => 10,
+          :key => {:size => 10}
+        },
+        :labels => {
+			:label => [
+				{:x => 50, :y => 5,:text => cdata_section("<b>Loan Refinance Opportunity</b>") ,:align => "center",
+				  :text_size => 12, :text_color => '#968568'},
+				 {:x => 0, :y => 210, :text => cdata_section("<b>Monthly Payment</b>"),:rotate =>true, :align => "center",
+				  :text_size => 13,:text_color => '#A69C75'} 
+			  ]
+        },
+      }).to_xml) do
+    render :partial => '/common/missing_flash'
+  end
+
+%>
+</div>

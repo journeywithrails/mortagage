@@ -1,0 +1,11 @@
+# Used for subscription emails (subscription_notifier.rb)
+app_name: Mortgage Science
+from_email: scott@mobilefoundry.net
+
+# Used in account creation (account.rb)
+base_domain: ms.mobilefoundry.net
+
+# Set this to true if you want to require CC info when creating a paid account
+require_payment_info_for_trials: false
+
+new_password_length: 9

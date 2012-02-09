@@ -1,0 +1,17 @@
+<fieldset>
+  <% fields_for :user do |f| %>
+    <%= f.text_field :name, :label=>'Administrator Name' %>*<br>
+    <%= f.text_field :email %>*<br>
+    <%= f.text_field :address1, :label=>'Address' %><br>
+    <%= f.text_field :address2, :label=>'' %><br>
+    <%= f.text_field :city %><br>
+    <%= f.text_field :state %><br>
+    <%= f.text_field :zip %><br>
+    <%= f.text_field :phone_work, :label=>'Work Phone' %><br>
+    <%= f.text_field :phone_mobile, :label=>'Mobile Phone' %><br>
+    <%= f.text_field :fax %><br>
+    <%= label_tag "Broker Photo File" %><%= input_file_column("photo_file", @user) %><br>
+    <label for="user_password">Password</label><%= f.password_field :password %>*<br>
+    <label for="user_password_confirmation">Password Confirmation</label><%= f.password_field :password_confirmation %>*<br>
+  <% end %>
+</fieldset>  

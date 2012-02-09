@@ -1,0 +1,42 @@
+<div id="top_zip_codes" style="float:left;">
+  <%=
+  ambling_chart(:column,  :chart_data => @zip_codes,
+    :id => 'top_zip_codes', :width => 300, :height => 195,
+    :chart_settings => Ambling::Column::Settings.new({
+        :column => {
+          :type => "clustered", :width => 97, :spacing => 25,
+          :balloon_text => cdata_section("{series} : {value}"),
+          :data_labels => cdata_section("{value}"),
+          :data_labels_position => "outside",
+		  :data_labels_text_color => "#948A54"
+        },
+        :grid => {
+          :category => {:alpha => 0}, :value => {:alpha => 5}
+        },
+        :values => {
+          :category => {:enabled => true, :rotate => 90,:color => "#948A54"},:value => {:enabled => false,:color => "#948A54"}
+        },
+		:axes => {
+		:value => {:alpha => 0 , :width => 0}
+		},
+        :plot_area => {
+          :margins => {:left => 20, :top => 40, :right => 40, :bottom => 50}
+        },
+        :legend => {
+          :enabled => false, :x => 195, :y => 20, :width => 100, :text_color => '#000',
+          :max_columns => 1, :spacing => 1, :text_size => 10,
+          :key => {:size => 10}
+        },
+        :labels => {
+          :label => [
+            {:x => 20, :y => 5, :text => cdata_section("<b>Top Zip Codes</b>"),
+              :text_size => 12, :text_color => '#4A452A'},
+            {:x => 20, :y => 25, :text => "", :align => "left", :width => 180,
+              :text_size => 11,:text => cdata_section("Last Twelve Months"), :text_color => '#4A452A'}
+          ]
+        }
+      }).to_xml) do
+    render :partial => '/common/missing_flash'
+  end
+%>
+</div>

@@ -1,0 +1,529 @@
+<script type="text/javascript">
+function redirect_to_edit(id,select_id)
+{
+var where_to = confirm("Do you really want to edit selected Scenario");
+if (where_to== true){window.location="/new_loan/proposals/<%= @proposal.id %>/proposal_scenarios/"+id+"/edit";}
+else{$("proposal_scenarios_id").value = select_id;return false}
+}	
+</script>
+
+<table width="584" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td><img src="/images/cor01.gif" alt="" border="0" /></td>
+							<td class="CorBg01"></td>
+							<td><img src="/images/cor02.gif" alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td width="10" class="CorBg02"></td>
+							<td width="564" valign="top">
+							
+								<div class="Heading01Divs">
+								
+								<%= render_box_arrow(__FILE__, "Start a New Loan - Step 2") %>								
+								<div style="float:right;"><input type="image" src="/images/btn_saveandreturntoborrower.gif" alt="" border="0" name="submit_button" value="save_and_return" /></div>
+								</div>
+								
+								<br /><br />
+								
+								<table width="564" border="0" cellspacing="0" cellpadding="0" class="Text01 Text0101">
+								<tr>
+									<td valign="top" colspan="7"><div><div class="Heading02">Loan Information - <%= @proposal_scenario.proposal.household.to_label %><!--Rufus Michaels--></div></div></td>
+								</tr>
+								<tr>
+									<td valign="top" colspan="7">
+									<span class="TextLarge02"><%= @proposal_scenario.proposal.household.address %><!--15 East Putnam Ave, Greenwich , CT 06830--></span></td>
+								</tr>
+								<tr>
+									<td valign="top" colspan="7">
+										<table width="564" border="0" cellspacing="0" cellpadding="2">
+										<tr>
+											<td height="10"></td>
+										</tr>
+										<tr>
+											<td colspan="9">
+												<div class="TextLink02">
+										<a href="#" target="_self">Refinance Information</a><img src="/images/textlink_arrow02.gif" alt="" border="0" /></div></td>
+										</tr>
+										<tr>
+											<td width="220" valign="top"></td>
+											<td width="10"></td>
+											<td valign="bottom" align="center">First Loan</td>
+											<td width="10"></td>
+											<td valign="middle"></td>
+											<td width="10"></td>
+											<td valign="bottom" align="center">Second Loan</td>
+											<td width="10"></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td valign="middle">Original Loan Balance</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="$0" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="$0" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Current Loan Balance</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="$0" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="$0" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Loan Term</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="30 Years" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="30 Years" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Due In</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="30 Years" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="30 Years" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Current Rate</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="%" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="%" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Interest Only?</td>
+											<td></td>
+											<td valign="middle" align="center"><input type="checkbox" /></td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center"><input type="checkbox" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Bi-Weekly?</td>
+											<td></td>
+											<td valign="middle" align="center"><input type="checkbox" /></td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center"><input type="checkbox" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Current Monthly PMT</td>
+											<td></td>
+											<td valign="middle" align="center">$0</td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center">$0</td>
+											<td colspan="2"></td>
+										</tr> 
+										<tr>
+											<td height="40"></td>
+										</tr>
+										<tr>
+											<td colspan="9">
+												<div class="TextLink02">
+													<a href="#" target="_self">New Loan Scenario</a><img src="/images/textlink_arrow02.gif" alt="" border="0" /></div></td>
+										</tr>
+										<tr>
+											<td valign="top">Choose a Saved Scenario</td>
+											<td></td>
+											<td valign="top" colspan="7">
+											
+											
+	<%= select_tag 'proposal_scenario_id',options_for_select(@proposal.proposal_scenarios.map {|t| [t.name, t.id]}, !params[:id].blank? ? @proposal_scenario.id : @proposal.proposal_scenarios.first.id), :id => 'proposal_scenarios_id',:class=> "Combo02", :onchange => "return redirect_to_edit(this.value,#{!params[:id].blank? ? @proposal_scenario.id : @proposal.proposal_scenarios.first.id});" %>
+	</td>
+										</tr>
+										<tr>
+											<td valign="middle">Or Enter a New Scenario Name</td>
+											<td></td>
+                      <td valign="middle" colspan="7"><%= text_field :proposal_scenario, :name, :class => 'Input04' %></td>
+										</tr>
+										<tr>
+											<td height="40"></td>
+										</tr>
+										<tr>
+											<td colspan="9">
+												<div class="TextLink02">
+													<a href="#" target="_self">Loan Information</a><img src="/images/textlink_arrow02.gif" alt="" border="0" /></div></td>
+										</tr>
+										<tr>
+											<td valign="middle">Purchase Price</td>
+											<td width="10"></td>
+                      <td valign="middle"><%= text_field :proposal_scenario, :purchase_price, :class => 'Input06' %></td>
+											<td colspan="3"></td>
+											<td valign="middle"></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Down Payment</td>
+											<td></td>
+                      <td valign="middle"><%= text_field :proposal_scenario, :down_payment_amount, :class => 'Input06' %></td>
+											<td></td>
+											<td valign="middle">Or</td>
+											<td></td>
+                      <td valign="middle"><%= text_field :proposal_scenario, :down_payment_pct, :class => 'Input06' %></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Cash Out (Refi Only)</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="TODO" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Funding Required</td>
+											<td></td>
+                      <td valign="middle" align="center"><span><%= h @proposal_scenario.funding_required %></span></td>
+											<td colspan="3"></td>
+											<td valign="middle"></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td height="10"></td>
+										</tr>
+										<tr>
+											<td valign="bottom"></td>
+											<td></td>
+											<td valign="bottom" align="center">First Loan</td>
+											<td colspan="3"></td>
+											<td valign="bottom" align="center">Second Loan</td>
+											<td></td>
+											<td valign="middle" align="center">Total</td>
+										</tr>
+										<tr>
+											<td valign="middle">Loan Product</span></td>
+											<td></td>
+											<td valign="middle">
+                        <%= collection_select :new_loan_product, :first, NewLoanProduct.all, :id, :name, {}, :class => 'Combo01' %>
+												</td>
+											<td colspan="3"></td>
+											<td valign="middle">
+                        <%= collection_select :new_loan_product, :second, NewLoanProduct.all, :id, :name, {}, :class => 'Combo01' %>
+                      </td>
+											<td colspan="2"></td>
+										</tr>
+
+										<tr>
+											<td valign="middle">Loan Amount</td>
+											<td></td>
+                      <td valign="middle"><%= text_field :first_loan, :loan_amount, :class => 'Input06' %></td>
+											<td colspan="3"></td>
+                      <td valign="middle"><%= text_field :second_loan, :loan_amount, :class => 'Input06' %></td>
+											<td></td>
+											<td valign="middle" align="center">$000,000</td>
+										</tr>
+										<tr>
+											<td height="10"></td>
+										</tr>
+										<tr>
+											<td colspan="9">
+												<span>Manual Input</span></td>
+										</tr>
+										<tr>
+											<td valign="middle">Loan Term</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="30 Years" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="15 Years" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Due In</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="30 Years" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="15 Years" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td height="40"></td>
+										</tr>
+										<tr>
+											<td colspan="9">
+												<div class="TextLink02">
+													<a href="#" target="_self">Rate Type</a><img src="/images/textlink_arrow02.gif" alt="" border="0" /></div></td>
+										</tr>
+										<tr>
+											<td valign="middle">ARM Type</span></td>
+											<td></td>
+											<td valign="middle" align="center">First Loan</td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center">Second Loan</td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Bi-Weekly</span></td>
+											<td></td>
+											<td valign="middle" align="center">
+												<input type="checkbox" /></td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center">
+												<input type="checkbox" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Interest Only</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="60 months" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="0 months" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Rate</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="6.125%" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"><input type="text" class="Input06" value="6.125%" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Monthly Payment</td>
+											<td></td>
+											<td valign="middle" align="center"><span>$0,000.00</span></td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center"><span>$0,000.00</span></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Equivalent Bi-Weekly Payment</td>
+											<td></td>
+											<td valign="middle" align="center"><span>$0,000.00</span></td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center"><span>$0,000.00</span></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Equivalent Bi-Weekly Term</td>
+											<td></td>
+											<td valign="middle" align="center"><span>$0</span></td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center"><span>$0</span></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Balloon Payment</td>
+											<td></td>
+											<td valign="middle" align="center"><span>$0</span></td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center"><span>$0</span></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Loan To Value</td>
+											<td></td>
+											<td valign="middle" align="center"><span>69%</span></td>
+											<td colspan="3"></td>
+											<td valign="middle" align="center"><span>80%</span></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Private Mortgage Insurance</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="N / A" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Private Mortgage Insurance</td>
+											<td></td>
+											<td valign="middle" align="center">N / A</td>
+											<td colspan="3"></td>
+											<td valign="middle"></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">PMI Loan To Value Threshold</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="80%" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Homeowners Insurance (optional)</td>
+											<td></td>
+											<td valign="middle"><input type="text" class="Input06" value="80%" /></td>
+											<td colspan="3"></td>
+											<td valign="middle"></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Homeowners Insurance</td>
+											<td></td>
+											<td valign="middle" align="center"><span>$00 / month</span></td>
+											<td colspan="3"></td>
+											<td valign="middle"></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">
+												<table border="0" cellspacing="0" cellpadding="2">
+												<tr>
+													<td>First Payment Date</td>
+													<td></td>
+												</tr>
+												</table></td>
+											<td></td>											
+											<td valign="middle" !colspan="7">
+		<%= calendar_date_select 'calendar','enddate',  :class => "Input01a", :label => false %>									
+											</td>
+											<td colspan="6"></td>
+										</tr>
+										<tr>
+											<td height="40"></td>
+										</tr>
+										<tr>
+											<td colspan="9">
+												<div class="TextLink02">
+													<a href="#" target="_self">Advanced ARM Options</a><img src="/images/textlink_arrow02.gif" alt="" border="0" /></div></td>
+										</tr>
+										<tr>
+											<td valign="middle">Discount Rate</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Discount Term</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Interest Rate Floor</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Lifetime Rate Cap</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">ARM Adj Period</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">1st Adj Rate Cap</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Periodic Rate Cap</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Periodic PMT Cap</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Recast Period</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Index</span></td>
+											<td></td>
+											<td valign="middle">
+												<select class="Combo01">
+													<option>MTA Index</option>
+												</select></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<select class="Combo01">
+													<option>MTA Index</option>
+												</select></td>
+											<td colspan="2"></td>
+										</tr>
+										<tr>
+											<td valign="middle">Margin</span></td>
+											<td></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="3"></td>
+											<td valign="middle">
+												<input type="text" class="Input06" value="none" /></td>
+											<td colspan="2"></td>
+										</tr>
+										</table>
+										
+										<table border="0" cellspacing="0" cellpadding="2" align="center">
+										<tr>
+											<td height="10"></td>
+										</tr>
+										<tr>
+											<td valign="middle">
+                        <input type="image" src="/images/btn_saveandinput.gif" name="submit_button" value="save_and_create_new" alt="Insert New scenario" border="0" />
+											</td>
+											<td></td>
+											<td valign="middle"><span>or</span></td>
+											<td></td>
+											<td valign="middle" align="center">
+                        <input type="image" src="/images/btn_saveandcontinue.gif" alt="View Summary" border="0" name="submit_button" value="save_and_continue" />
+											</td>
+										</tr>
+										</table></td>
+								</tr>
+								</table></td>
+							<td width="10" class="CorBg03"></td>
+						</tr>
+						<tr>
+							<td><img src="/images/cor03.gif" alt="" border="0" /></td>
+							<td class="CorBg04"></td>
+							<td><img src="/images/cor04.gif" alt="" border="0" /></td>
+						</tr>
+						</table>
+						

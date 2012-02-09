@@ -1,0 +1,5 @@
+<h1>secret file upload page</h1>
+<% form_tag ('/file_upload/create') do %>
+	<%= text_field_tag 'filename' %>
+	<%= submit_tag 'upload' %>
+<% end %>

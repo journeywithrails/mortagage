@@ -1,0 +1,94 @@
+<table width="270" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><img src="/images/cor01.gif" alt="" border="0" /></td>
+		<td class="CorBg01"></td>
+		<td><img src="/images/cor02.gif" alt="" border="0" /></td>
+	</tr>
+	<tr>
+		<td width="10" class="CorBg02"></td>
+		<td width="250" valign="top">
+			<div class="Heading01Divs06">
+        <%= render_box_arrow(__FILE__, "Opportunities") %>
+			</div>
+			<br /><br /><br /><br />
+			
+<% if @household.refinance_refi_scenario %>
+<table width="250" border="0" cellspacing="0" cellpadding="0" class="Text01">
+	<tr>
+		<td valign="bottom">Refinance</td>
+		<td width="8"></td>
+		<td valign="bottom" align="center">Balance</td>
+		<td width="8"></td>
+		<td valign="bottom" align="center">Rate</td>
+		<td width="8"></td>
+		<td valign="bottom" align="center">Monthly<br />Savings</td>
+	</tr>
+	<tr>
+		<td valign="top">
+		<span class="TextColor01">
+			<%=@best_refinance_scenario_property.property.to_label if !@best_refinance_scenario_property.blank? %>
+		</span>
+		</td>
+		<td></td>
+		<td valign="top" align="center">
+		<span>
+		<%=number_to_currency(@best_refinance_scenario_property.total_loan_amount,:precision=>0) if !@best_refinance_scenario_property.blank? %>
+		</span>
+		</td>
+		<td></td>
+		<td valign="top" align="center">
+		<span>
+		<%=@best_refinance_scenario_property.combined_loan_rates if !@best_refinance_scenario_property.blank? %>
+		</span>
+		</td>
+		<td></td>
+		<td valign="top" align="center">
+		<span>
+		<%=number_to_currency(-@household.refinance_refi_scenario.net_monthly_payment_change,:precision=>0)%>
+		</span>
+		</td>
+	</tr>
+	<tr>
+		<td height="10"></td>
+	</tr>
+	<tr>
+		<td valign="bottom">College Planning</td>
+		<td></td>
+		<td valign="bottom" align="center">Funds<br />Needed</td>
+		<td></td>
+		<td valign="bottom" align="center">Equity<br />Available</td>
+		<td></td>
+		<td valign="bottom" align="center">Monthly<br />Cost</td>
+	</tr>
+	<tr>
+		<td valign="top"><span class="TextColor01">3108 Alexis Dr</span></td>
+		<td></td>
+		<td valign="bottom" align="center"><span>$990,000</span></td>
+		<td></td>
+		<td valign="bottom" align="center"><span>7.0%</span></td>
+		<td></td>
+		<td valign="bottom" align="center"><span>$822</span></td>
+	</tr>
+</table>
+<% else %>
+	<i>No Opportunities Found</i>
+<% end %>
+</td>
+<td width="10" class="CorBg03"></td>
+</tr>
+<tr>
+	<td><img src="/images/cor03.gif" alt="" border="0" /></td>
+	<td class="CorBg04"></td>
+	<td><img src="/images/cor04.gif" alt="" border="0" /></td>
+</tr>
+<tr>
+	<td height="10"></td>
+</tr>
+</table>
+					
+					
+
+
+   
+
+

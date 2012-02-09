@@ -1,0 +1,2 @@
+module Portfolio::ViewHouseholdLoanHelper
+end

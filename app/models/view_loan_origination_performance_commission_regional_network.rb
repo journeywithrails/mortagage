@@ -1,0 +1,2 @@
+class ViewLoanOriginationPerformanceCommissionRegionalNetwork < ActiveRecord::Base
+end

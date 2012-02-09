@@ -1,0 +1,130 @@
+<table width="914" width="894" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td valign="top" with="914">
+						<table width="914" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td><img src="/images/cor01.gif" alt="" border="0" /></td>
+							<td class="CorBg01"></td>
+							<td><img src="/images/cor02.gif" alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td width="10" class="CorBg02"></td>
+							<td width="894" valign="top">
+								<div class="Heading01Divs02">
+								<%= render_box_arrow(__FILE__, "Loan Comparison") %></div><br /><br /><br />
+								
+								<table width="894" border="0" cellspacing="0" cellpadding="0" class="Text03">
+								<tr>
+									<td valign="top">
+										<table width="894" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="50%">
+												<div class="Heading02">Loan Information - 
+												<%= @head_of_hh_person.to_label if !@head_of_hh_person.blank? %><br />
+													<span class="TextLarge03">
+												<%= @head_of_hh_person.address  if !@head_of_hh_person.blank?%></span>
+												</div></td>
+											<td width="50%" align="right" valign="top">
+												<table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td valign="middle"><%= link_to image_tag("/images/btn_inputanew.gif" , :alt=>"Insert New scenario" ,:border=>"0"), new_new_loan_proposal_proposal_scenario_path(@proposal)  %></td>
+													<td width="10"></td>
+													<td valign="middle"><span>or</span></td>
+													<td width="10"></td>
+                          <td valign="middle" align="center"><%= link_to image_tag("/images/btn_returntopriorpage.gif", :alt => "Previous Page", :border => 0), new_loan_proposal_proposal_scenario_path(@proposal, @proposal.proposal_scenarios.first) %>
+												</tr>
+												</table></td>
+										</tr>
+										</table></td>
+								</tr>
+								<tr>
+									<td><div style="border-top:2px solid #4A452A;height:2px;"></div></td>
+								<tr>
+									<td valign="top">
+										<table width="894" border="0" cellspacing="0" cellpadding="3">
+										<tr>
+										<td height="10"></td>
+										</tr>
+										
+										
+										<tr>
+										
+										<td width="200">
+										<table width="100%">
+										<tr><td></td></tr>
+										<tr><td valign="middle"><span class="ColorHeading01">Primary Loan</span></td></tr>
+										<tr><td valign="middle">Loan Program</td></tr>
+										<tr><td valign="middle">Interest Rate</td></tr>
+										<tr><td valign="middle">APR (est.)</td></tr>
+										<tr><td valign="middle">Term</td></tr>
+										<tr><td valign="middle">Rate Type</td></tr>
+										<tr><td valign="middle">First Rate Adjustment</td></tr>
+										<tr><td valign="middle">Interest Only Date</td></tr>
+										<tr><td valign="middle">PMI</td></tr>
+										<tr><td valign="middle">Monthly Payment</td></tr>
+										<tr><td valign="middle">Balloon Payment</td></tr>
+										<tr><td valign="middle">Total Interest Paid</td></tr>
+										<tr><td valign="middle">Total Principal Paid</td></tr>
+										<tr><td valign="middle">&nbsp;</td></tr>
+										<tr><td valign="middle">&nbsp;</td></tr>
+										<tr><td valign="middle"><span class="ColorHeading01">Secondary Loan</span></td></tr>
+										<tr><td valign="middle">Loan Program</td></tr>
+										<tr><td valign="middle">Interest Rate</td></tr>
+										<tr><td valign="middle">APR (est.)</td></tr>
+										<tr><td valign="middle">Term</td></tr>
+										<tr><td valign="middle">Rate Type</td></tr>
+										<tr><td valign="middle">First Rate Adjustment</td></tr>
+										<tr><td valign="middle">Interest Only Date</td></tr>
+										<tr><td valign="middle">PMI</td></tr>
+										<tr><td valign="middle">Monthly Payment</td></tr>
+										<tr><td valign="middle">Total Interest Paid</td></tr>
+										<tr><td valign="middle">Total Principal Paid</td></tr>
+										<tr><td valign="middle">&nbsp;</td></tr>
+										<tr><td valign="middle"><span class="ColorHeading01">Total Payment Amount</span></td></tr>
+										<tr><td valign="middle"></td></tr>
+										<tr><td valign="middle"></td></tr>
+										</table>
+										</td>
+										
+										<td width="10"></td>
+										
+										
+										<td valign="top">
+			<%
+			 @proposal.proposal_scenarios.each_with_index do |proposal_scenario,i|  
+			 td_class = cycle("Row04VertBorder", "")
+			%>
+             <% if i <= 4 %>			 
+               <%= render :partial => 'loan_details',:locals => {:proposal_scenario => proposal_scenario, :td_class => td_class} %>
+             <% else %>
+			   <% break %>
+			 <% end %>
+			<% end %>
+										
+										</td>
+										
+										</tr>
+
+
+</table>
+										</td>
+								</tr>
+								<tr>
+									<td height="10"></td>
+								</tr>
+								<tr>
+									<td valign="top" align="right">
+										<a href="#" target="_self"><img src="/images/btn_createloancomparison.gif" alt="" border="0" /></a></td>
+								</tr>
+								</table></td>
+							<td width="10" class="CorBg03"></td>
+						</tr>
+						<tr>
+							<td><img src="/images/cor03.gif" alt="" border="0" /></td>
+							<td class="CorBg04"></td>
+							<td><img src="/images/cor04.gif" alt="" border="0" /></td>
+						</tr>
+						</table>
+						</td>				
+				</tr>
+				</table>

@@ -1,0 +1,2 @@
+module Opportunity::InvestHelper
+end

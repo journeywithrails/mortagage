@@ -1,0 +1,13 @@
+<table width="914" width="894" border="0" cellspacing="0" cellpadding="0">
+  <% form_for([@proposal, @proposal_scenario], :url => new_loan_proposal_proposal_scenario_path) do |f_proposal_scenario| %>
+				<tr>
+					<td valign="top" with="584">
+					<%= render :partial => 'loan_info' %>
+					</td>
+					<td width="10">&nbsp;</td>
+					<td width="320" valign="top">
+					<%= render :partial => 'estimated_closing_costs' %>
+					</td>
+				</tr>
+      <% end %>
+</table>

@@ -1,0 +1,218 @@
+<table width="914" width="894" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top" height="9"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" with="584"><span class="HeadingInnerpages">Portfolio Search</span></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" valign="top" with="584">
+      <%= tabnav :portfolio_search %>
+    </td>
+  </tr>
+
+  <tr>
+    <td height="60" align="left" class="BasicSearchBg" style="padding-left:20px;">
+      <table width="600" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td colspan="3">
+            
+            <div id="advance">
+              <% remote_form_for  [:portfolio, @search],
+			  					 :before => "Element.show('spinner');",
+								 :success => "Element.hide('spinner');",
+								 :url =>  do_advanced_search_portfolio_view_household_loans_path do |f| %>
+                <% f.fields_for @search.conditions do |household| %>
+                  <table width="860" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td height="5" align="right">&nbsp;</td>
+                      <td align="left">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" align="right">
+					  <input id="search_submit" name="Search" input type="image" src="/images/btn02_search.gif"  value="submit" />
+					  <img src="/images/indicator.gif" alt="" border="0"  id="spinner" style="display:none"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="250" align="left" valign="top">
+                        <table width="250" border="0" cellspacing="5" cellpadding="0" >
+                          <tr>
+                            <td width="78" align="left" class="SubHeadingBlack">Property</td>
+                            <td width="147" align="left">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td align="right" class="Heading02TextSmall">Street Name</td>
+                            <td align="left"><%= household.text_field :street_name_keywords, :label => false, :class => "SearchInput01"%> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">City</span></td>
+                            <td align="left"><%= household.text_field :city_keywords, :label => false,:class => "SearchInput01" %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Zip Code(s)</span></td>
+                            <td align="left"><%= household.text_field 'zip_gte', :label => false,:class => 'SearchInput02' %>&nbsp;to<%=household.text_field 'zip_lte', :label => false, :class=>"SearchInput02"%></td>
+                          </tr>
+                          <tr>
+                            <td align="right" class="Heading02TextSmall">Available Equity</td>
+                            <td align="left"><%= household.text_field 'available_equity_in_cents_gte' , :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'available_equity_in_cents_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall"># of Properties</span></td>
+                            <td align="left"><%= household.text_field 'property_count_gte', :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'property_count_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Purchase Price</span></td>
+                            <td align="left"><%= household.text_field 'purchase_price_in_cents_gte', :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'purchase_price_in_cents_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Loan to Value %</span></td>
+                            <td align="left"><%= household.text_field 'loan_to_value_percent_gte', :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'loan_to_value_percent_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Property Type</span></td>
+                            <td align="left"><%= household.collection_select(:housing_type_id, @housing_types, :id, :name, {:include_blank=>"Any"}, {:label => false, :class=>"SearchInput01b"}) %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Occupancy Type</span></td>
+                            <td align="left"><%= household.collection_select(:property_use_id, @property_uses, :id, :name, {:include_blank=>"Any"}, {:label => false, :class=>"SearchInput01b"}) %> </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="300" align="right" valign="top">
+                        <table width="100%" border="0" cellspacing="5" cellpadding="0">
+                          <tr>
+                            <td width="100" align="left" class="SubHeadingBlack">Loan</td>
+                            <td width="154" align="left">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td align="right" class="Heading02TextSmall">Loan Size</td>
+                            <td align="left"><%= household.text_field 'current_loan_amount_in_cents_gte', :label => false, :class => 'SearchInput02' %>&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;&nbsp;&nbsp;<%= household.text_field 'current_loan_amount_in_cents_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Current Interest Rate</span></td>
+                            <td align="left"><%= household.text_field 'current_interest_rate_gte', :label => false, :class => 'SearchInput02' %>&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;&nbsp;&nbsp;<%= household.text_field 'current_interest_rate_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right" class="Heading02TextSmall">Payment Savings</td>
+                            <td align="left"><%= household.text_field 'payment_savings_in_cents_gte', :label => false, :class => 'SearchInput02' %>&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;&nbsp;&nbsp;<%= household.text_field 'payment_savings_in_cents_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Loan Date<br />
+                            mm/dd/yyyy</span></td>
+                            <td align="left"><%= household.calendar_date_select 'closing_date_gte',  :class => "SearchInput02", :label=>false %>&nbsp;to<%= household.calendar_date_select "closing_date_lte",:label => false, :class => "SearchInput02" %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Next ARM Date</span></td>
+                            <td align="left"><%= household.calendar_date_select "next_arm_rate_adjustment_date_gte",:label => false, :class => "SearchInput02" %>&nbsp;to<%= household.calendar_date_select "next_arm_rate_adjustment_date_lte", :label => false, :class => "SearchInput02" %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">End of Interest Only Period</span></td>
+                            <td align="left"><%= household.calendar_date_select "end_of_intrest_only_period_gte", :label => false, :class => "SearchInput02" %>&nbsp;to<%= household.calendar_date_select "end_of_intrest_only_period_lte", :label => false, :class => "SearchInput02" %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Balloon Payment Date </span></td>
+                            <td align="left"> <%=household.calendar_date_select "balloon_payment_date_gte", :label => false, :class => "SearchInput02" %>&nbsp;to<%=household.calendar_date_select "balloon_payment_date_lte", :label => false, :class => "SearchInput02" %></td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Loan Type</span></td>
+                            <td align="left"><%= household.collection_select(:loan_type_id, @loan_types, :id, :name, {:include_blank=>"Any"}, {:label => false, :class=>"SearchInput01b02"}) %> </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="275" align="right" valign="top">
+                        <table width="275" border="0" cellspacing="5" cellpadding="0">
+                          <tr>
+                            <td colspan="2" align="left" class="SubHeadingBlack">Household Financials</td>
+                          </tr>
+                          <tr>
+                            <td width="110" align="right" class="Heading02TextSmall">Monthly HH Income</td>
+                            <td width="150" align="left"><%= household.text_field 'monthly_hh_income_in_cents_gte', :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'monthly_hh_income_in_cents_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Consumer Debt</span></td>
+                            <td align="left"><%= household.text_field 'consumer_debts_in_cents_gte', :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'consumer_debts_in_cents_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">FICO Score</span></td>
+                            <td align="left"><%= household.text_field 'median_credit_score_gte', :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'median_credit_score_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td align="right">&nbsp;</td>
+                            <td height="25" align="left">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" align="left"><span class="SubHeadingBlack">Family Demographics</span></td>
+                          </tr>
+                          <tr>
+                            <td align="right" class="Heading02TextSmall"># of Dependents(TODO)</td>
+                            <td align="left"><input id="noofdepd1" name="noofdepd1" type="text" class="SearchInput02">&nbsp;to<input id="noofdepd2" name="noofdepd2" type="text" class="SearchInput02">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Children's Ages</span></td>
+                            <td align="left"><%= household.text_field 'age_years_gte', :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'age_years_lte', :label => false, :class => 'SearchInput02' %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><span class="Heading02TextSmall">Borrower Age</span></td>
+                            <td align="left"><%= household.text_field 'age_years_gte', :label => false, :class => 'SearchInput02' %>&nbsp;to<%= household.text_field 'age_years_lte', :label => false, :class => 'SearchInput02' %> </td>
+                          </tr>
+                          <tr>
+                            <td height="65" align="right">&nbsp;</td>
+                            <td align="left">&nbsp;</td>
+                          </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height="25" align="right">&nbsp;</td>
+                      <td align="left">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" align="right">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td valign="middle"><span class="Heading02TextSmall">Save Criteria</span></td>
+                            <td valign="middle"><select name="select4" class="SearchInput01c" id="select3">
+                                <option value="1">enter a new name or select from list</option>
+                                <option value="2">Primary01</option>
+                                <option value="3">Primary02</option>
+                            </select></td>
+                            <td valign="middle">&nbsp;<a href="#" target="_self"><img src="/images/btn02_save.gif" alt="" border="0" /></a></td>
+                          </tr>
+                      </table></td>
+                    </tr>
+                    <tr>
+                      <td height="5" align="right">&nbsp;</td>
+                      <td align="left">&nbsp;</td>
+                    </tr>
+                  </table>
+
+                <% end %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="10"></td>
+  </tr>
+
+  <tr>
+    <td height="60" align="center">
+      <div id = "households">
+        <div id="search_results" >
+          <%= render :partial => "search_results" %>
+        </div>
+      </div>      
+    </td>
+  </tr>
+</table>	  
+

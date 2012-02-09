@@ -1,0 +1,2 @@
+module Campaigns::WizardHelper
+end

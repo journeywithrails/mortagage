@@ -1,0 +1,100 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+#content {
+	padding: 0em;
+}
+table {
+	border-collapse: collapse;
+}
+
+td, th {
+	padding: 0em;
+	border: 0px solid #CCC;
+}
+
+thead, tfoot {
+	background-color: #fff;
+}
+
+tr.rowodd {
+
+}
+
+tr.roweven {
+	background-color: #f8f8f8;
+}
+
+.sortcol {
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+.sortasc {
+	background-color: #f8f8f8;
+	background-image: url(../images/arrow_up.gif);
+}
+	.sortwait{
+	background-color:#f8f8f8;
+	background-image:url(../images/indicator-small.gif);
+}
+.sortdesc {
+	background-color: #eeece1;
+	background-image: url(../images/arrow_down.gif);
+	
+}
+.nosort {
+	cursor: default;
+}
+
+.urg1, .urg2, .urg3, .urg4, .urg5 {
+	padding: 0px;
+	text-align: center;
+	border: px solid #333;
+	width: 3em;
+}
+
+.urg1 {
+	background-color: #FFFACD;
+}
+.urg2 {
+	background-color: #FFD700;
+}
+.urg3 {
+	background-color: Orange;
+}
+.urg4 {
+	background-color: #FF6347;
+}
+.urg5 {
+	background-color: Red;
+}
+
+.scroll-table-head {
+    width: 670px;
+}
+
+.scroll-table-body {
+    width: 670px;
+    height: 300px;				
+}
+.scroll-table-body td {
+	padding-right: 0px;
+	overflow: hidden;
+}
+
+/* newly added styles for client news */
+.scroll01-table-head {
+    width: 544px;
+}
+
+.scroll01-table-body {
+    width: 544px;
+    height: auto;			
+}
+.scroll01-table-body td {
+	padding-right: 0px;
+	overflow: hidden;
+}
+

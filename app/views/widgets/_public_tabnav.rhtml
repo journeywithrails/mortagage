@@ -1,0 +1,52 @@
+<div id="TopLink">
+  <%
+  render_tabnav :public, :html => {:class=>'main_tabnav'}  do
+
+    controller_module = controller.subtab_nav
+
+    if controller_module == 'home'
+      add_tab :name => link_to( image_tag("/images/toplink_home02.gif",  :id=>"Image9"),:controller=>'/home' )
+
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_home01.gif",  :id=>"Image9", :mouseover => '/images/toplink_home02.gif'), :controller=>'/home' )
+    end
+
+    if controller_module == 'services'
+      add_tab :name => link_to( image_tag("/images/toplink_services02.gif",  :id=>"Image4"),:controller=>'/home/services')
+
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_services01.gif",  :id=>"Image4", :mouseover => '/images/toplink_services02.gif'), :controller=>'/home/services' )
+    end
+
+    if controller_module == 'pricing'
+      add_tab :name => link_to( image_tag("/images/toplink_pricing02.gif",  :id=>"Image5"),:controller=>'/home/pricing')
+
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_pricing01.gif",  :id=>"Image5", :mouseover => '/images/toplink_pricing02.gif'), :controller=>'/home/pricing' )
+    end
+
+    if controller_module == 'take a tour'
+      add_tab :name => link_to( image_tag("/images/toplink_takeatour02.gif",  :id=>"Image6"),:controller=>'/home/tour')
+
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_takeatour01.gif",  :id=>"Image6", :mouseover => '/images/toplink_takeatour02.gif'), :controller=>'/home/tour' )
+    end
+
+    if controller_module == 'security'
+      add_tab :name => link_to( image_tag("/images/toplink_support02.gif",  :id=>"Image7"),:controller=>'/home/security')
+
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_support01.gif",  :id=>"Image7", :mouseover => '/images/toplink_support02.gif'), :controller=>'/home/security' )
+    end
+
+    if controller_module == 'about us'
+      add_tab :name => link_to( image_tag("/images/toplink_about02.gif",  :id=>"Image8"),:controller=>'/home/about_us')
+
+    else
+      add_tab :name => link_to( image_tag("/images/toplink_about01.gif",  :id=>"Image8", :mouseover => '/images/toplink_about02.gif'), :controller=>'/home/about_us' )
+    end
+
+  end
+%>
+  <div style="clear:both"></div>
+</div>

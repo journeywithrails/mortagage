@@ -1,0 +1,32 @@
+<table border="0" cellspacing="0" cellpadding="0" id="TopPath">
+  <tr>
+    <td valign="top">
+    <%= link_to "Households",:controller =>"portfolio/view_household_loan" %></td>
+    <td valign="top">
+    <img src="/images/topatharrow.gif" alt="" border="0" /></td>
+    <td valign="top">
+    <%= link_to "#{@household.to_label}", portfolio_household_overview_path(params[:id]) %></td>
+    <td valign="top">
+    <img src="/images/topatharrow.gif" alt="" border="0" /></td>
+    <td valign="top" class="Text01">
+    Property Dashboard</td>
+  </tr>
+</table>
+<br/>
+<table width="914" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <!--opportunities,Loan History,Campaigns data  -->
+    <td valign="top" with="270">
+      <%= render :partial => "opportunities" %>
+      <%= render :partial => "loan_history" %>
+      <%= render :partial => "campaigns" %>
+    </td>
+    <!-- End of opportunities,Loan History,Campaigns data  -->
+    <td width="10">&nbsp;</td>
+    <!--Property Dashboard details  -->
+    <td width="634" valign="top">
+      <%= render :partial => "property_dashbord_details" %>
+    </td>
+    <!--End of Property Dashboard details  -->
+  </tr>
+</table>		

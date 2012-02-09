@@ -1,0 +1,8 @@
+<div id="PgHeadingText">Settings</div>
+<%  
+render_tabnav_ms :settings, :html=>{:id=>"PgHeadingTextLink"} do
+  add_tab :name => 'account', :link => {:controller=>'/accounts', :action=>'edit'}
+  add_tab :name => 'billing', :link => {:controller=>'/accounts', :action=>'billing'}
+  add_tab :name => 'cancel', :link => {:controller=>'/accounts', :action=>'cancel'}
+end 
+%>

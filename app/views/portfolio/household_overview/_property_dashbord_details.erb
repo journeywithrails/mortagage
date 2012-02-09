@@ -1,0 +1,153 @@
+<%= javascript_include_tag 'swfobject' %>
+<table width="634" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+    <td class="CorBg01"></td>
+    <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+  </tr>
+  <tr>
+    <td width="10" class="CorBg02"></td>
+    <td width="614" valign="top">
+      <div class="Heading01Divs07">
+         <%= render_box_arrow(__FILE__, "Property Dashboard") %>
+      </div>
+      <br /><br /><br /><br />
+      <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text01">
+        <tr>
+          <td valign="top">
+            <div class="TextLargeColor01" style="float:left;"><%= "#{@household.to_label}" %></div>
+            <div style="float:right;">
+              <%= link_to image_tag("/images/btn_returntohousehold.gif", :border=>0), portfolio_household_overview_path(params[:id]) %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="Dots">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text01">
+              <tr>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "current_loan_balance_chart" %>
+                  </span>
+                </td>
+                <td valign="top" width="20"></td>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "current_pmt_chart" %>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="Dots">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text01">
+              <tr>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "current_interest_rate_chart" %>
+                  </span>
+                </td>
+                <td valign="top" width="20"></td>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "remaining_term_chart" %>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="Dots">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text01">
+              <tr>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "purchase_price_chart" %>
+                  </span>
+                </td>
+                <td valign="top" width="20"></td>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "zillow_value_chart" %>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="Dots">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text01">
+              <tr>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "equity_estimate_chart" %>
+                  </span>
+                </td>
+                <td valign="top" width="20"></td>
+                <td valign="top" width="297" align="center"><span class="TextLargeHeading01"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="Dots">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table width="614" border="0" cellspacing="0" cellpadding="0" class="Text01">
+              <tr>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "five_yr_arm_savings_chart" %>
+                  </span>
+                </td>
+                <td valign="top" width="20"></td>
+                <td valign="top" width="297" align="center">
+                  <span class="TextLargeHeading01">
+                    <%= render :partial => "thirty_yr_fixed_savings_chart" %>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+    </table></td>
+    <td width="10" class="CorBg03"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+    <td class="CorBg04"></td>
+    <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+  </tr>
+</table>

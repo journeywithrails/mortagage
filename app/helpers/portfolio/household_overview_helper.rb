@@ -1,0 +1,2 @@
+module Portfolio::HouseholdOverviewHelper
+end

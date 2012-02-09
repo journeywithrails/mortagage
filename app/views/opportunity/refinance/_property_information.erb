@@ -1,0 +1,124 @@
+
+<table width="270" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><img src="/images/cor01.gif" alt="" border="0" /></td>
+						<td class="CorBg01"></td>
+						<td><img src="/images/cor02.gif" alt="" border="0" /></td>
+					</tr>
+					<tr>
+						<td width="10" class="CorBg02"></td>
+						<td width="250" valign="top">
+							<div class="Heading01Divs06" style="float:left;">
+							<%= render_box_arrow(__FILE__, 'Property Information') %></div><br /><br /><br /><br /><br />
+
+						<table width="250" border="0" cellspacing="0" cellpadding="2">
+							<tr>
+								<td colspan="7">
+									<div class="TextLarge02"><%= @property.property_address %></div></td>
+							</tr>
+							<tr>
+								<td height="20"></td>
+							</tr>
+							<tr>
+								<td colspan="7">
+									<div class="Heading02">Home Details</div></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Date Purchased</td>
+								<td width="10"></td>
+								<td valign="middle" align="right">
+									<span>Feb-95</span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Puchase Price</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span><%= number_to_currency(@property.purchase_price) %></span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Assessed Value</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span><%=  @zillow_cache.tax_assessment if !@zillow_cache.blank?%></span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Living Area</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span>0,000 Sq feet</span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Lot Size</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span><%=  @zillow_cache.lot_size_sq_ft if !@zillow_cache.blank?%> Sq feet</span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Type</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span><%=  @zillow_cache.use_code if !@zillow_cache.blank?%></span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Year Built</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span><%=  @zillow_cache.year_built if !@zillow_cache.blank?%></span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Current Value</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span>$0,000,000</span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Debt Outstanding</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span>$0,000,000</span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Total Equity (est.)</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span>$0,000,000</span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Available Equity</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span>$0,000,000</span></td>
+							</tr>
+							<tr>
+								<td valign="middle">
+									Loan to Value Ratio</td>
+								<td></td>
+								<td valign="middle" align="right">
+									<span>00%</span></td>
+							</tr>
+							<tr>
+								<td height="20"></td>
+							</tr>
+</table></td>
+						<td width="10" class="CorBg03"></td>
+					</tr>
+					<tr>
+						<td><img src="/images/cor03.gif" alt="" border="0" /></td>
+						<td class="CorBg04"></td>
+						<td><img src="/images/cor04.gif" alt="" border="0" /></td>
+					</tr>
+					<tr>
+						<td height="10"></td>
+					</tr>
+					</table>

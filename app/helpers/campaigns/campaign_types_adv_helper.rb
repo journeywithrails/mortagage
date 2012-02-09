@@ -1,0 +1,2 @@
+module Campaigns::CampaignTypesAdvHelper
+end

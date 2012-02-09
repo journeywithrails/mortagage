@@ -1,0 +1,9 @@
+
+  <%=
+  ambling_chart(:column,  :chart_data => @current_interest_data,
+  :settings_file => "/amcolumn/amcolumn_settingsfor_current_interest_rate.xml",
+    :id => 'current_interest_rate', :width => 280, :height => 195) do
+    render :partial => '/common/missing_flash'
+  end
+%>
+

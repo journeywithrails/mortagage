@@ -1,0 +1,309 @@
+<table width="914"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" >
+      <table width="584" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+          <td class="CorBg01"></td>
+          <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+        </tr>
+        <tr>
+          <td width="10" class="CorBg02"></td>
+          <td width="564" valign="top">
+            <div class="Heading01Divs"><%= render_box_arrow(__FILE__, "Start a New Loan - Step 1: Borrower Data") %></div><br /><br /><br /><br />
+
+              <table width="564" border="0" cellspacing="0" cellpadding="0" class=" Text01 Text0101">
+                <tr>
+                  <td valign="top" colspan="7"><div><div class="Heading02">Borrower & Co-Borrower Information</div><div class="TextLink01"><a href="#" target="_self"><img src="/images/btn_copyfromexisting.gif" alt="" border="0" /></a></div></div></td>
+                </tr>
+                <tr>
+                  <td valign="top" colspan="7">
+                    <table width="564" border="0" cellpadding="2" cellspacing="0">			
+                      <tr>
+                        <td colspan ="3">
+                          <table>
+
+                            <tr>
+                              <td width="142" align="left" valign="top"></td>
+                              <td width="12" align="left"></td>
+                              <td width="150" align="left" valign="top">Borrower</td></tr>
+                                 <% fields_for('head_of_hh_person', @head_of_hh_person) do |f_head_of_hh| %>  
+                              <tr>
+                                <td width="142" align="left" valign="middle">First Name</td>
+                                <td width="12" align="left"></td>
+                                <td width="150" align="left" valign="middle">
+                                  <%= f_head_of_hh.text_field :first_name, :label => false, :class=>"Input01" %>
+                                </td>											
+                              </tr>
+                              <tr>
+                                <td align="left" valign="middle">Last Name</td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle">
+                                  <%= f_head_of_hh.text_field :last_name, :label => false, :class=>"Input01" %>
+                                </td>										
+                              </tr>
+                              <tr>
+                                <td height="30"></td>
+                              </tr>
+                              <tr>
+                                <td colspan="3">
+                                  <div class="TextLink02">
+                                    <a href="#" target="_self">Telephone / Email</a><img src="/images/textlink_arrow02.gif" alt="" border="0" /></div></td>
+                              </tr>
+                              <tr>
+                                <td align="left" valign="middle">Home</td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle">
+                                  <%= f_head_of_hh.text_field :phone_home , :label => false, :class=>"Input01" %>
+                                </td>											
+                              </tr>
+                              <tr>
+                                <td align="left" valign="middle">Mobile</td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle">
+                                  <%= f_head_of_hh.text_field :phone_mobile, :label => false, :class=>"Input01"%>
+                                </td>											
+                              </tr>
+                              <tr>
+                                <td align="left" valign="middle">Office</td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle">
+                                  <%= f_head_of_hh.text_field :phone_work, :label => false, :class=>"Input01" %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="left" valign="middle">Fax</td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle">
+                                  <%= f_head_of_hh.text_field :fax, :label => false, :class=>"Input01" %>
+                                </td>											
+                              </tr>
+                              <tr>
+                                <td align="left" valign="middle">Email</td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle">   <%= f_head_of_hh.text_field :email, :label => false , :class=>"Input01" %></td>											
+                              </tr>
+                            <% end %>
+                          </table>
+                        </td> 
+
+                        <td colspan="2">
+                          <table>
+                            <tr>
+                              <td width="19" align="left"></td>
+                              <td width="221" align="left" valign="top">Co-Borrower</td>
+                            </tr>
+                            <% fields_for('coborrower', @coborrower) do |f_coborrower| %>        
+                              <tr>
+                                <td width="19" align="left" valign="middle"></td>
+                                <td align="left"  valign="middle"><%= f_coborrower.text_field :first_name, :label => false , :class=>"Input01" %></td>								
+                              </tr>
+                              <tr>
+                                <td width="19" align="left"></td>
+                                <td align="left"  valign="middle">	<%= f_coborrower.text_field :last_name , :label => false , :class=>"Input01" %>
+                                </td>									
+                              </tr>
+                              <tr>
+                                <td height="30"></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2">&nbsp;
+
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width="19" align="left"></td>
+                                <td align="left" valign="middle">
+                                  <%= f_coborrower.text_field :phone_home, :label => false, :class=>"Input01" %>
+                                </td>										
+                              </tr>
+                              <tr>
+                                <td width="19" align="left"></td>
+                                <td align="left" valign="middle"><%= f_coborrower.text_field :phone_mobile, :label => false, :class=>"Input01" %></td>										
+                              </tr>
+                              <tr>
+                                <td width="19" align="left"></td>
+                                <td align="left" valign="middle"><%= f_coborrower.text_field :phone_work, :label => false, :class=>"Input01" %></td>
+                              </tr>
+                              <tr>
+                                <td width="19" align="left"></td>
+                                <td align="left" valign="middle"><%= f_coborrower.text_field :fax, :label => false, :class=>"Input01" %></td>										
+                              </tr>
+                              <tr>
+                                <td width="19" align="left"></td>
+                                <td align="left" valign="middle"> <%= f_coborrower.text_field :email, :label => false, :class=>"Input01" %></td>
+                              </tr>
+                            <% end %>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td height="40"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <div class="TextLink02">
+                            <a href="#" target="_self">Income / Tax Rate</a><img src="/images/textlink_arrow02.gif" alt="" border="0" /></div></td>
+                      </tr>
+                      <tr><td colspan="5">										
+                          <table>
+
+                            <% fields_for('household_financial', @household_financial) do |f_household_financial| %>
+
+                              <tr>
+                                <td width="142" align="left" valign="middle">Estimated Household Income</td>
+                                <td width="12" align="left"></td>
+                                <td width="150"  align="left" valign="middle">
+                                  <%= f_household_financial.text_field :estimated_income, :label => false, :class => "Input01" %>
+                                </td>
+                                <td width="19" align="left"></td>
+                                <td width="221" align="left" valign="middle"></td>
+                              </tr>
+                              <tr>
+                                <td align="left" valign="middle">Filing Status</td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle">												
+                                  <%= select_tag 'tax_filing_status[id]', !@household_financial.tax_rate.blank? ? options_for_select(TaxFilingStatus.all.map {|t| [t.name, t.id]}, @household_financial.tax_rate.tax_filing_status_id ) :"no item", :id => 'tax_filing_status_id',  :class=>"Combo01" %>
+
+                                  <% %w{tax_filing_status_id household_financial_estimated_income}.each do |field_id| %>
+                                    <%= observe_field field_id, ajax_args %>
+                                  <%end%>
+                                </td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle"></td>
+                              </tr>
+                              <tr>
+                                <td align="left" valign="middle">Estimated Tax Rate</td>
+                                <td align="left"></td>
+                                <td align="left" valign="middle">
+                                <input type='hidden' name='household_financial[tax_rate_id]' id='household_financial_tax_rate_id'/>
+                                  <div id='estimated_tax_rate' style="margin:0;padding:0">
+                                    &nbsp;
+                                  </div>
+                                </td>
+                                <td align="left"></td>
+                                <td valign="middle" align="right"><a href="#" target="_self"><img src="/images/btn_lookupfromtax.gif" alt="" border="0" /></a></td>
+                              </tr>
+                            <% end %>
+                            <tr>
+                              <td align="left" valign="middle">Experian credit score</td>
+                              <td align="left"></td>
+                              <td align="left" valign="middle">
+                                <% fields_for('person_financial', @person_financial) do |f_head_of_hh_person_financial| %>
+                                  <%= f_head_of_hh_person_financial.text_field :experian_credit_score , :label => false, :class=>"Input01" %>
+                                <% end %>
+                              </td>
+                              <td align="left"></td>
+                              <td align="left" valign="middle"></td>
+                            </tr>
+                            <tr>
+                              <td align="left" valign="middle">Estimated tax amt</td>
+                              <td align="left"></td>
+                              <td align="left" valign="middle">
+                                <% fields_for('proposal_property', @proposal_property) do |f_property| %>
+                                  <%= f_property.text_field :estimated_tax_amt, :label => false, :class=>"Input01" %>
+                                <% end %>
+                              </td>
+                              <td align="left"></td>
+                              <td align="left" valign="middle"></td>
+                            </tr>
+
+                      </table></td></tr>
+
+                      <tr>
+                        <td height="40"></td>
+                      </tr>
+                    </table>
+
+                    <table width="564" border="0" cellspacing="0" cellpadding="2">											
+                      <% fields_for('head_of_hh_person', @head_of_hh_person) do |f_head_of_hh| %>     
+                        <tr>
+                          <td colspan="11" height="5"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="4" align="left" valign="middle">Number & Street</td>											
+                          <td colspan="9" align="left" valign="middle">
+                            <%= f_head_of_hh.text_field :address1, :label => false, :class=>"Input02" %>
+                          </td>
+                        </tr>										
+                        <tr>
+                          <td  colspan="4"  width="150" align="left" valign="middle">City</td>
+
+                          <td width="110" align="left" valign="middle"><%= f_head_of_hh.text_field :city, :label => false, :class=>"Input01" %></td>
+                          <td width="5" align="left"></td>
+                          <td width="30" align="left" valign="middle">State</td>
+                          <td width="5" align="left"></td>
+                          <td width="62" align="left" valign="middle"><%= select_tag 'head_of_hh_person[state]', usa_state_options_for_select(@head_of_hh_person.state),:class=>"Combo01" %></td>
+                          <td width="5" align="left"></td>
+                          <td width="50" align="left" valign="middle">Zip Code</td>
+                          <td width="5" align="left"></td>
+                          <td width="62" align="left" valign="middle">
+                            <%= f_head_of_hh.text_field :zip, :label => false, :class=>"Input03" %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="40"></td>
+                        </tr>
+                      <% end %>
+                    </table>
+
+                    <table width="564" border="0" cellspacing="0" cellpadding="2">
+                      <tr>
+                        <td colspan="13">
+                          <div class="TextLink02"><a href="#" target="_self">Property Address</a><img src="/images/textlink_arrow02.gif" alt="" border="0" /></div><div style="float:right;"><a href="#" target="_self"><img src="/images/btn_copyfromcontact.gif" alt="" border="0" /></a></div></td>
+                      </tr>
+                      <tr>
+                        <td height="5"></td>
+                      </tr>
+                      <% fields_for('proposal_property', @proposal_property) do |f_proposal_property| %>
+
+                        <tr>
+                          <td colspan="4" align="left" valign="middle">Number & Street</td>
+
+                          <td colspan="9" align="left" valign="middle">
+                            <%= f_proposal_property.text_field :address1, :label => false, :class=>"Input02" %>
+                          </td>
+                        </tr>										
+                        <tr>
+                          <td  colspan="4"  width="150" align="left" valign="middle">City</td>
+
+                          <td width="110" align="left" valign="middle"><%= f_proposal_property.text_field :city, :label => false, :class=>"Input01" %></td>
+                          <td width="5" align="left"></td>
+                          <td width="30" align="left" valign="middle">State</td>
+                          <td width="5" align="left"></td>
+                          <td width="62" align="left" valign="middle"><%= select_tag 'proposal_property[state]', usa_state_options_for_select(@proposal_property.state),:class=>"Combo01" %></td>
+                          <td width="5" align="left"></td>
+                          <td width="50" align="left" valign="middle">Zip Code</td>
+                          <td width="5" align="left"></td>
+                          <td width="62" align="left" valign="middle"><%= f_proposal_property.text_field :zip, :label => false, :class=>"Input03" %></td>
+                        </tr>
+                      <% end %>
+                      <tr>
+                        <td height="10"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="13" valign="top" align="right">
+                          <input  id="submit" name="submit" input type="image" src="/images/btn_continuetostep2_loanoptions.gif"  value="submit" />
+                        </td>
+                      </tr>
+                  </table></td>
+                </tr>
+            </table></td>
+            <td width="10" class="CorBg03"></td>
+          </tr>
+          <tr>
+            <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+            <td class="CorBg04"></td>
+            <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+          </tr>
+      </table></td>
+      <td width="10">&nbsp;</td>
+      <td width="320" valign="top">
+      <%= render :partial => 'rate_offering' %>     
+		</td>
+      </tr>
+    </table>
+
+
+

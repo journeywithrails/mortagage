@@ -1,0 +1,6 @@
+<h1>Opportunity::Detail#show</h1>
+<p>Find me in app/views/opportunity/detail/show.html.erb</p>
+<% form_tag '/opportunity/reports/refinance' do -%>
+  <%= hidden_field_tag "household_id", params[:id] %>
+  <%= submit_tag "Generate PDF Report" %>
+<% end %>

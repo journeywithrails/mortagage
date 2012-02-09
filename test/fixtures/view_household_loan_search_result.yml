@@ -1,0 +1,4 @@
+default:
+  user: authorized_user
+  names: "--- \n- Joe Smith \n- Clint Eastwood"
+  addresses: "--- \n- Boulder, CO \n- North Pole"

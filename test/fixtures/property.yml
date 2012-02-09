@@ -1,0 +1,17 @@
+mofo:
+  address1: 3500 arapahoe ave.
+  city: Boulder
+  state: CO
+  household: default
+ 
+eastwood_house:
+  address1: 123 Main St.
+  city: Deadwood
+  state: SD
+  household: eastwood_household
+
+guiliani_apartment_to_buy:
+  address1: 123 Uptown
+  city: New York
+  state: NY
+

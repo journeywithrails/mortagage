@@ -1,0 +1,4 @@
+# account
+default:
+  name: 'default'
+  full_domain: 'test.host'

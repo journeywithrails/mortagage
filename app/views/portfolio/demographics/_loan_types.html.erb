@@ -1,0 +1,35 @@
+<tr>
+  <td width="120px"  colspan="5"><strong>Loan Terms</strong></td>
+</tr>
+<% even = false %>
+<% @region_summary_by_loan_type.keys.each do |loan_type_name| %>
+  <% if @region_summary_by_loan_type[loan_type_name].length > 0 then %>
+    <% current_us_by_lt = @user_summary_by_loan_type[loan_type_name] %>
+    <% even ? tr_class = "Row02" : tr_class = "Row01" %>
+    <tr class="<%= tr_class %>">
+      <td><%= loan_type_name %></td>
+      <td/>
+      <% period = Portfolio::DemographicsController::HALF_YEAR %>
+      <td align="center"><span>
+          <%= divide_pct_label(current_us_by_lt[period].count, @user_summary[period].count) unless current_us_by_lt[period].nil? %>
+      </span></td>
+      <td/>
+      <% period = Portfolio::DemographicsController::FULL_YEAR %>
+      <td align="center"><span>
+          <%= divide_pct_label(current_us_by_lt[period].count, @user_summary[period].count) unless current_us_by_lt[period].nil? %>
+      </span></td>
+      <td/>
+      <% period = Portfolio::DemographicsController::LIFETIME %>
+      <td align="center"><span>
+          <%= divide_pct_label(current_us_by_lt[period].count, @user_summary[period].count) unless current_us_by_lt[period].nil? %>
+      </span></td>
+      <td/>
+      <td align="center"><span>
+          <%= divide_pct_label(@region_summary_by_loan_type[loan_type_name][Portfolio::DemographicsController::HALF_YEAR].count,
+            @region_summary[Portfolio::DemographicsController::HALF_YEAR].count) \
+            unless @region_summary_by_loan_type[loan_type_name][Portfolio::DemographicsController::HALF_YEAR].nil? %>
+      </span></td>
+    </tr>
+    <% even = !even %>
+  <% end %>
+<% end %>

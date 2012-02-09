@@ -1,0 +1,58 @@
+LoopyMultipleDatabases
+======================
+
+Use this if you want to store some models in a different database. There are some plugins
+out there that do this already, but what i saw seemed a bit too hard core for me.
+
+This plugin tries to stay as tiny and non-invasive as possible - it fixes the rails db: 
+tasks to respect the different databases, and allows you to place migrations for your other 
+dbs under db/migrate/your_special_db, starting from 0.  
+
+Lets say you have an Analytics DB. Start off by creating a base class like this:
+
+class AnalyticsModel < ActiveRecord::Base
+  self.abstract_class = true
+  establish_connection("analytics_#{ RAILS_ENV }")
+end
+
+now you need to add the appropriate entries in your database.yml: 
+
+analytics_development:
+  username: analytics
+  database: analytics_development
+  password: super_secret
+
+analytics_test:
+  username: analytics
+  database: analytics_test
+  password: super_secret
+
+analytics_production:
+  username: analytics_prod
+  database: analytics_production
+  password: super_secret
+
+finally, add environment files to /environments. ie: analytics_test.rb, analytics_production.rb, 
+analytics_development.rb. 
+
+db:migrate and db:test:clone have been enhanced to take care of all databases.
+
+Example
+=======
+
+With the above setup in place, you can now create a foder under db/migrate for your separate db.
+In this example, you'd create db/migrate/analytics.
+
+Now create migrations in there, starting with 001-your_first_migration.rb.
+
+You can run all the db tasks for your special dbs by setting RAILS_ENV. For example:
+
+export RAILS_ENV=analytics_development
+rake db:schema:dump
+
+this will create db/analytics_development_schema.rb.
+
+rake db:migrate works as normal. if you set RAILS_ENV=production, it will migrate 'analytics_production'
+as well as 'production'. 
+
+Copyright (c) 2008 play/type GmbH, released under the MIT license

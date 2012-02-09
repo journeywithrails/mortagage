@@ -1,0 +1,19 @@
+<h1><%= @page_title = 'Users' %></h1>
+
+<table id="users">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  <% current_account.users.each do |user| %>
+    <tr>
+      <td><%=h user.name %></td>
+      <td><%=h user.email %></td>
+      <td><%= link_to('Edit', edit_user_path(user)) %></td>
+    </tr>
+  <% end %>
+</table>
+<% if admin? %>
+<%= link_to('New', :action=>'new') %>
+<% end %>

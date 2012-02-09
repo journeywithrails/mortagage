@@ -1,0 +1,343 @@
+<%= javascript_include_tag 'swfobject' %>
+<table width="914" width="894" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" with="584">
+      <table width="584" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+          <td class="CorBg01"></td>
+          <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+        </tr>
+        <tr>
+          <td width="10" class="CorBg02"></td>
+          <td width="564" valign="top">
+            <div class="Heading01Divs">
+			<%= render_box_arrow(__FILE__, "Portfolio Demographics") %></div><br /><br /><br /><br />
+            
+            <table width="564" border="0" cellspacing="0" cellpadding="0" class="Text01">
+              <tr>
+                <td valign="top" colspan="7"><div><div class="Heading02">Loan Portfolio</div><div class="TextLink01"><a href="#" target="_self">See More</a><img src="/images/textlink_arrow01.gif" alt="" border="0" /></div></div></td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="center">
+                  Number of<br />
+                Active Loans</td>
+                <td width="10"></td>
+                <td valign="bottom" align="center">
+                  Number of<br />
+                Households</td>
+                <td width="10"></td>
+                <td valign="bottom" align="center">
+                  Avg Loans<br />
+                Per Household</td>
+                <td width="10"></td>
+                <td valign="bottom" align="center">
+                  Avg Borrower /<br />
+                Co-Borrower Age</td>
+              </tr>
+              <tr>
+                <td valign="top" align="center">
+                <span><%= number_with_delimiter(@view_loan_portfolio.closed_loans) if !@view_loan_portfolio.blank?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_with_delimiter(@view_loan_portfolio.active_loan_households) if !@view_loan_portfolio.blank?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_with_precision(@view_loan_portfolio.avg_loans_per_household,1) if !@view_loan_portfolio.blank? %></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= "#{number_with_precision(@view_loan_portfolio.avg_borrower_age_in_years, 0)} / #{number_with_precision(@view_loan_portfolio.avg_co_borrower_age_in_years, 0)}" if !@view_loan_portfolio.blank?%></span></td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td valign="bottom" align="center">
+                Avg Loan Age</td>
+                <td></td>
+                <td valign="bottom" align="center">
+                Repeat Clients</td>
+                <td></td>
+                <td valign="bottom" align="center">
+                Average Monthly Income </td>
+                <td></td>
+                <td valign="bottom" align="center">
+                Avg Household Dependents</td>
+              </tr>
+              <tr>
+                <td valign="top" align="center">
+                <span><%= number_with_precision(@view_loan_portfolio.average_loan_age_in_months / 12, 2) if !@view_loan_portfolio.blank?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_with_precision(@view_loan_portfolio.repeat_households, 2) if !@view_loan_portfolio.blank?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@view_loan_portfolio.avg_hh_income, :precision=>0) if !@view_loan_portfolio.blank? %></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span>1.8</span></td>
+              </tr>
+              <tr>
+                <td height="20"></td>
+              </tr>
+              <tr>
+                <td colspan="7" class="Num01">
+                Number of Loan Opportunities Calculated Today: <span class="Num02"><%= number_with_delimiter(current_broker_user.new_opportunity_count) %></span></td>
+              </tr>
+              <tr>
+                <td class="Dots" colspan="7">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="20"></td>
+              </tr>
+            </table>
+            
+            <table width="564" border="0" cellspacing="0" cellpadding="0" class="Text02">
+              <tr>
+                <td valign="top" colspan="9"><div><div class="Heading02">Loan Origination Performance</div><div class="TextLink01"><a href="#" target="_self">See More</a><img src="/images/textlink_arrow01.gif" alt="" border="0" /></div></div></td>
+              </tr>
+              <tr class="Row02">
+                <td valign="bottom" align="center">
+                </td>
+                <td width="10"></td>
+                <td valign="bottom" align="center">
+                Last<br />180 Days</td>
+                <td width="10"></td>
+                <td valign="bottom" align="center">
+                Last<br />Year</td>
+                <td width="10"></td>
+                <td valign="bottom" align="center">
+                Lifetime</td>
+                <td width="10"></td>
+                <td valign="bottom" align="center">
+                MAE Regional<br />Network (180 Days)</td>
+              </tr>
+              <tr>
+                <td colspan="9" height="8"></td>
+              </tr>
+              <tr class="Row01">
+                
+                <td valign="top">
+                Avg Loan Size</td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@user_summary[Portfolio::DemographicsController::HALF_YEAR].avg_loan_amount, :precision => 0) unless @user_summary[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@user_summary[Portfolio::DemographicsController::FULL_YEAR].avg_loan_amount, :precision => 0) unless @user_summary[Portfolio::DemographicsController::FULL_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@user_summary[Portfolio::DemographicsController::LIFETIME].avg_loan_amount, :precision => 0) unless @user_summary[Portfolio::DemographicsController::LIFETIME].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@region_summary[Portfolio::DemographicsController::HALF_YEAR].avg_loan_amount, :precision => 0) unless @region_summary[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+              </tr>
+              
+              <tr class="Row02">
+                <td valign="top">
+                Avg Commission $</td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@user_commission[Portfolio::DemographicsController::HALF_YEAR].avg_commission, :precision => 0) unless @user_commission[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@user_commission[Portfolio::DemographicsController::FULL_YEAR].avg_commission, :precision => 0) unless @user_commission[Portfolio::DemographicsController::FULL_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@user_commission[Portfolio::DemographicsController::LIFETIME].avg_commission, :precision => 0) unless @user_commission[Portfolio::DemographicsController::LIFETIME].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_to_currency(@region_commission[Portfolio::DemographicsController::HALF_YEAR].avg_commission, :precision => 0) unless @region_commission[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+              </tr>
+              <tr class="Row01">
+                <td valign="top">
+                Avg Commission %</td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= pct_label(number_with_precision(@user_commission[Portfolio::DemographicsController::HALF_YEAR].avg_pct_commission, 2)) unless @user_commission[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= pct_label(number_with_precision(@user_commission[Portfolio::DemographicsController::FULL_YEAR].avg_pct_commission, 2)) unless @user_commission[Portfolio::DemographicsController::FULL_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= pct_label(number_with_precision(@user_commission[Portfolio::DemographicsController::LIFETIME].avg_pct_commission, 2)) unless @user_commission[Portfolio::DemographicsController::LIFETIME].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= pct_label(number_with_precision(@region_commission[Portfolio::DemographicsController::HALF_YEAR].avg_pct_commission, 2)) unless @region_commission[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+              </tr>
+              <tr class="Row02">
+                <td valign="top">
+                Avg Days to Close a Loan</td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= @user_summary[Portfolio::DemographicsController::HALF_YEAR].days_to_close.round(2).to_s("F")  unless @user_summary[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= @user_summary[Portfolio::DemographicsController::FULL_YEAR].days_to_close.round(2).to_s("F")  unless @user_summary[Portfolio::DemographicsController::FULL_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= @user_summary[Portfolio::DemographicsController::LIFETIME].days_to_close.round(2).abs.to_s("F")  unless @user_summary[Portfolio::DemographicsController::LIFETIME].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= @region_summary[Portfolio::DemographicsController::HALF_YEAR].days_to_close.round(2).to_s("F")  unless @region_summary[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+              </tr>
+              <tr class="Row01">
+                <td valign="top">
+                Total Loans</td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_with_delimiter(@user_summary[Portfolio::DemographicsController::HALF_YEAR].count) unless @user_summary[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_with_delimiter(@user_summary[Portfolio::DemographicsController::FULL_YEAR].count) unless @user_summary[Portfolio::DemographicsController::FULL_YEAR].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_with_delimiter(@user_summary[Portfolio::DemographicsController::LIFETIME].count) unless @user_summary[Portfolio::DemographicsController::LIFETIME].nil?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= number_with_delimiter(@region_summary[Portfolio::DemographicsController::HALF_YEAR].count) unless @region_summary[Portfolio::DemographicsController::HALF_YEAR].nil?%></span></td>
+              </tr>
+              <tr class="Row02">
+                <td valign="top">
+                New Client Transactions</td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= pct_label(number_with_precision(@view_new_client.new_clients_last_hyear.to_s, 2)) if !@view_new_client.blank?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= pct_label(number_with_precision(@view_new_client.new_clients_last_year.to_s, 2)) if !@view_new_client.blank?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= pct_label(number_with_precision(@view_new_client.new_clients.to_s, 2)) if !@view_new_client.blank?%></span></td>
+                <td></td>
+                <td valign="top" align="center">
+                <span><%= pct_label(number_with_precision(@view_new_client.mae_regional_network.to_s, 2)) if !@view_new_client.blank?%></span></td>
+              </tr>
+              <tr>
+                <td colspan="9" height="20"></td>
+              </tr>
+              <tr class="Row02">
+                <td valign="top">
+                  <%= render :partial => 'loan_purpose' %>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="9" height="20"></td>
+              </tr>
+              <tr class="Row02">
+                <td valign="top">
+                  <%= render :partial => 'loan_types' %>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="9" height="20"></td>
+              </tr>
+              <tr class="Row02">
+                <td valign="top">
+                  <%= render :partial => 'property_use' %>
+                </td>
+              </tr>
+          </table></td>
+          <td width="10" class="CorBg03"></td>
+        </tr>
+        <tr>
+          <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+          <td class="CorBg04"></td>
+          <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+        </tr>
+    </table></td>
+    <td width="10">&nbsp;</td>
+    <td width="320" valign="top">
+      <table width="320" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="/images/cor01.gif" alt="" border="0" /></td>
+          <td class="CorBg01"></td>
+          <td><img src="/images/cor02.gif" alt="" border="0" /></td>
+        </tr>
+        <tr>
+          <td width="10" class="CorBg02"></td>
+          <td valign="top" width="300">
+            <div class="Heading01Divs05"><%= render_box_arrow(__FILE__, "Trends") %></div><br /><br />
+            <br /><br />
+            <table width="300" border="0" cellspacing="0" cellpadding="0" class="Text02">
+              
+              <tr>
+                <td valign="top">
+                                  
+                  <%= render :partial => "transactions_per_month_chart" %>
+                </td>
+              </tr>
+              <tr>
+                <td class="Dots">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="20"></td>
+              </tr>
+            </table>
+            
+            <table width="300" border="0" cellspacing="0" cellpadding="0" class="Text02">
+              
+              <tr>
+                <td valign="top">
+                 
+                    <%=render :partial =>  "average_loan_size_chart" %>
+
+                </td>
+              </tr>
+              <tr>
+                <td class="Dots">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="20"></td>
+              </tr>
+            </table>
+            
+            <table width="300" border="0" cellspacing="0" cellpadding="0" class="Text02">
+              <tr>
+                <td valign="top"><div><div class="TextLink01"><a href="#" target="_self">See More</a><img src="/images/textlink_arrow01.gif" alt="" border="0" /></div></div></td>
+              </tr>								
+              <tr>
+                
+                <td>                 
+             
+             <%= render :partial => "top_zip_codes_chart" %>
+             
+             </td>    
+                
+                
+              </tr>
+              <tr>
+                <td class="Dots">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="20"></td>
+              </tr>
+            </table>
+            
+            
+            <table width="300" border="0" cellspacing="0" cellpadding="0" class="Text02">
+             
+              <tr>
+                <td colspan="9">
+                  <div class="box-right-2">
+                    <%= render :active_scaffold => '/portfolio/top_customers', :label => 'Top Customers' %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="5" height="8"></td>
+              </tr>
+              
+          </table></td>
+          <td width="10" class="CorBg03"></td>
+        </tr>
+        <tr>
+          <td><img src="/images/cor03.gif" alt="" border="0" /></td>
+          <td class="CorBg04"></td>
+          <td><img src="/images/cor04.gif" alt="" border="0" /></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>						
+
+
